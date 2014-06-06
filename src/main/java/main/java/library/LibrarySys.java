@@ -5,8 +5,10 @@ import java.util.*;
 
 import javax.swing.*;
 
-import main.java.model.AddressModel;
-import main.java.model.MemberModel;
+import main.java.librarysys.model.AddressModel;
+import main.java.librarysys.model.BookModel;
+import main.java.librarysys.model.CopyModel;
+import main.java.librarysys.model.MemberModel;
 
 public class LibrarySys {
 
@@ -24,8 +26,8 @@ public class LibrarySys {
          
          AddressModel a1 = new AddressModel("20","Alex","Miami",2015);
          MemberModel m1 = new MemberModel("Omar","Ibrahim",a1, 12312312,333);
-         Book b1 = new Book("Sindad",4,123);
-         Copy c1 = new Copy(1,"aviable",b1);
+         BookModel b1 = new BookModel("Sindad",4,123);
+         CopyModel c1 = new CopyModel(1,"aviable",b1);
          javax.swing.ImageIcon x=  new javax.swing.ImageIcon(this.getClass().getResource("/book-icon.png"));
          /* Secenario 1
          m1.loan(c1);

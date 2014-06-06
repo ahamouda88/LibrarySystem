@@ -1,14 +1,12 @@
-package main.java.model;
+package main.java.librarysys.model;
 
 import java.util.*;
-
-import main.java.library.Book;
 
 public class AuthorModel extends PersonModel {
 
     private String credentials;
     private String short_bio;
-    private List<Book> books = new ArrayList<Book>();
+    private List<BookModel> books = new ArrayList<BookModel>();
     
     public AuthorModel(){}
 
@@ -34,11 +32,11 @@ public class AuthorModel extends PersonModel {
 		this.short_bio = short_bio;
 	}
 
-	public List<Book> getBooks() {
+	public List<BookModel> getBooks() {
 		return books;
 	}
 
-	public void setBooks(List<Book> books) {
+	public void setBooks(List<BookModel> books) {
 		this.books = books;
 	}
 

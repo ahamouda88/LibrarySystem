@@ -2,6 +2,9 @@ package main.java.library;
 
 import javax.swing.*;
 
+import main.java.librarysys.model.BookModel;
+import main.java.librarysys.model.MagazineModel;
+
 public class PublicationGUI extends javax.swing.JDialog {
 
     private Library lb;
@@ -271,12 +274,12 @@ public class PublicationGUI extends javax.swing.JDialog {
     }
 
     public void addBook() {
-        Book b = new Book(title_txt.getText(), Integer.parseInt(maxcheckoutlength_txt.getText()), Integer.parseInt(ISBN_txt.getText()));
+        BookModel b = new BookModel(title_txt.getText(), Integer.parseInt(maxcheckoutlength_txt.getText()), Integer.parseInt(ISBN_txt.getText()));
         lb.addPublication(b);
     }
 
     public void addMagazine() {
-        Magazine m = new Magazine(title_txt.getText(), Integer.parseInt(maxcheckoutlength_txt.getText()), Integer.parseInt(issueno_txt.getText()));
+        MagazineModel m = new MagazineModel(title_txt.getText(), Integer.parseInt(maxcheckoutlength_txt.getText()), Integer.parseInt(issueno_txt.getText()));
         lb.addPublication(m);
     }
 

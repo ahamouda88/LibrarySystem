@@ -1,10 +1,13 @@
-package main.java.library;
+package main.java.librarysys.model;
 
-public class Magazine extends Publication {
+
+public class MagazineModel extends PublicationModel {
 
     private int issueno;
+    
+    public MagazineModel(){}
 
-    public Magazine(String title, int max, int issueno) {
+    public MagazineModel(String title, int max, int issueno) {
         super(title, max);
         this.issueno = issueno;
     }

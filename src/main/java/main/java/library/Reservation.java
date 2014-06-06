@@ -2,19 +2,21 @@ package main.java.library;
 
 import java.util.*;
 
-import main.java.model.MemberModel;
+import main.java.librarysys.model.CopyModel;
+import main.java.librarysys.model.MemberModel;
+import main.java.librarysys.model.PublicationModel;
 
 public class Reservation {
 
     private Date statusDate;
     private MemberModel member;
-    private Publication publication;
-    private Copy copy;
+    private PublicationModel publication;
+    private CopyModel copy;
     private String status;
     //public enum Statusenum{Canceled,OnHold,Pending};
     //private Statusenum status;
 
-    public Reservation(MemberModel m, Publication pub) {
+    public Reservation(MemberModel m, PublicationModel pub) {
         this.member = m;
         this.publication = pub;
         this.setStatus("Pending");
@@ -24,7 +26,7 @@ public class Reservation {
         pub.addReservation(this);
         m.addReservation(this);
 // NEWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWw
-        for (Copy c : publication.getCopies()) {
+        for (CopyModel c : publication.getCopies()) {
             if (c.getStatus().equals("Available")) {
                 System.out.println(c.getStatus());
                 c.hold();
@@ -58,11 +60,11 @@ public class Reservation {
         this.member = member;
     }
 
-    public Publication getPublication() {
+    public PublicationModel getPublication() {
         return publication;
     }
 
-    public void setPublication(Publication publication) {
+    public void setPublication(PublicationModel publication) {
         this.publication = publication;
     }
 
@@ -98,7 +100,7 @@ public class Reservation {
         }
     }
 
-    public void hold(Copy c) {
+    public void hold(CopyModel c) {
         this.setStatus("Onhold");
         Calendar statusdate = Calendar.getInstance();
         Date d = statusdate.getTime();

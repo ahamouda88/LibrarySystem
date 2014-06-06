@@ -1,4 +1,4 @@
-package main.java.model;
+package main.java.librarysys.model;
 
 public class AddressModel {
 

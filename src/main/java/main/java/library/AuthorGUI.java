@@ -2,8 +2,10 @@ package main.java.library;
 
 import javax.swing.*;
 
-import main.java.model.AddressModel;
-import main.java.model.AuthorModel;
+import main.java.librarysys.model.AddressModel;
+import main.java.librarysys.model.AuthorModel;
+import main.java.librarysys.model.BookModel;
+import main.java.librarysys.model.PublicationModel;
 
 import java.awt.*;
 
@@ -277,7 +279,7 @@ public class AuthorGUI extends javax.swing.JDialog {
     }
     
     public void addAuthor() {
-        AuthorModel author = new AuthorModel(firstname_txt.getText(), lastname_txt.getText(), Integer.parseInt(telephone_txt.getText()), addAddress(), credentials_txt.getText(), shortbio_txtarea.getText(), (Book) book_cb.getSelectedItem());
+        AuthorModel author = new AuthorModel(firstname_txt.getText(), lastname_txt.getText(), Integer.parseInt(telephone_txt.getText()), addAddress(), credentials_txt.getText(), shortbio_txtarea.getText(), (BookModel) book_cb.getSelectedItem());
         lb.addAuthor(author);
         clearDialog();
     }
@@ -304,15 +306,15 @@ public class AuthorGUI extends javax.swing.JDialog {
                 });
         }*/
         for (int i = 0; i < lb.getallPublicatins().size(); i++) {
-            Publication p = (Publication) lb.getallPublicatins().getElementAt(i);
-            if (p instanceof Book) {
+            PublicationModel p = (PublicationModel) lb.getallPublicatins().getElementAt(i);
+            if (p instanceof BookModel) {
                 book_cb.addItem(p);
                 book_cb.setRenderer(new DefaultListCellRenderer() {
                     @Override
                     public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                         super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
                         if (value != null) {
-                            Publication myObj = (Publication) value;
+                            PublicationModel myObj = (PublicationModel) value;
                             setText(myObj.getTitle());
                         }
                         return this;

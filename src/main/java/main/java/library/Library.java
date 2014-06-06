@@ -4,9 +4,13 @@ import java.awt.CardLayout;
 
 import javax.swing.*;
 
-import main.java.model.AddressModel;
-import main.java.model.AuthorModel;
-import main.java.model.MemberModel;
+import main.java.librarysys.model.AddressModel;
+import main.java.librarysys.model.AuthorModel;
+import main.java.librarysys.model.BookModel;
+import main.java.librarysys.model.CopyModel;
+import main.java.librarysys.model.MagazineModel;
+import main.java.librarysys.model.MemberModel;
+import main.java.librarysys.model.PublicationModel;
 
 import java.awt.Component;
 import java.text.DateFormat;
@@ -885,7 +889,7 @@ public class Library extends JFrame {
 
     private void publicationlstValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_publicationlstValueChanged
         if (publicationlst.getSelectedValue() != null) {
-            Publication p = (Publication) publicationlst.getSelectedValue();
+            PublicationModel p = (PublicationModel) publicationlst.getSelectedValue();
             noofcopies_lbl.setText("" + p.getCopies().size());
         }
 
@@ -899,7 +903,7 @@ public class Library extends JFrame {
             public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
                 if (value != null) {
-                    Publication myObj = (Publication) value;
+                    PublicationModel myObj = (PublicationModel) value;
                     setText(myObj.getTitle());
                 }
                 return this;
@@ -947,9 +951,9 @@ public class Library extends JFrame {
     private void makeloan_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeloan_btnActionPerformed
         try {
             MemberModel m = (MemberModel) membersloan_cb.getSelectedItem();
-            Publication p = (Publication) publicatinsloan_cb.getSelectedItem();
-            Copy c = null;
-            for (Copy copy : p.getCopies()) {
+            PublicationModel p = (PublicationModel) publicatinsloan_cb.getSelectedItem();
+            CopyModel c = null;
+            for (CopyModel copy : p.getCopies()) {
                 if (copy.getStatus().equals("Available")) {
                     c = copy;
                     break;
@@ -977,7 +981,7 @@ public class Library extends JFrame {
         if (membersloans_lst.getSelectedValue() != null && loans_lst.getSelectedValue() != null) {
             MemberModel m = (MemberModel) membersloans_lst.getSelectedValue();
             Loan l = (Loan) loans_lst.getSelectedValue();
-            Copy c = l.getCopy();
+            CopyModel c = l.getCopy();
             System.out.println(c.getStatus());
             m.returnit(c);
             System.out.println(c.getStatus());
@@ -1010,7 +1014,7 @@ public class Library extends JFrame {
     private void makereservations_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makereservations_btnActionPerformed
         try {
             MemberModel m = (MemberModel) membersreserve_cb.getSelectedItem();
-            Publication p = (Publication) publicatinsreserve_cb.getSelectedItem();
+            PublicationModel p = (PublicationModel) publicatinsreserve_cb.getSelectedItem();
             m.reserve(p);
             setMembersList(membersreserve_lst);
         } catch (Exception e) {
@@ -1051,7 +1055,7 @@ public class Library extends JFrame {
         }
     }//GEN-LAST:event_membersreserve_lstValueChanged
 
-    public void addPublication(Publication p) {
+    public void addPublication(PublicationModel p) {
         publications.addElement(p);
     }
 
@@ -1064,8 +1068,8 @@ public class Library extends JFrame {
     }
 
     public void addCopy() {
-        Publication p = (Publication) publicationlst.getSelectedValue();
-        Copy c = new Copy(p.getCopies().size() + 1, "Available", p);
+        PublicationModel p = (PublicationModel) publicationlst.getSelectedValue();
+        CopyModel c = new CopyModel(p.getCopies().size() + 1, "Available", p);
         noofcopies_lbl.setText("" + p.getCopies().size());
     }
 
@@ -1081,7 +1085,7 @@ public class Library extends JFrame {
             public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
                 if (value != null) {
-                    Publication myObj = (Publication) value;
+                    PublicationModel myObj = (PublicationModel) value;
                     setText(index + 1 + "- " + myObj.getTitle());
                 }
                 return this;
@@ -1200,7 +1204,7 @@ public class Library extends JFrame {
                 public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                     super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
                     if (value != null) {
-                        Publication myObj = (Publication) value;
+                        PublicationModel myObj = (PublicationModel) value;
                         setText(myObj.getTitle());
                     }
                     return this;
@@ -1210,19 +1214,19 @@ public class Library extends JFrame {
     }
 
     public void fillData() {
-        publications.add(0, new Book("Book1", 7, 11));
-        publications.add(1, new Book("Book2", 7, 122));
-        publications.add(2, new Book("Book3", 7, 6));
-        publications.add(3, new Book("Book4", 7, 2));
-        publications.add(4, new Magazine("Magazine1", 7, 12));
-        publications.add(5, new Magazine("Magazine2", 7, 54));
-        publications.add(6, new Magazine("Magazine3", 7, 32));
-        publications.add(7, new Magazine("Magazine4", 7, 23));
+        publications.add(0, new BookModel("Book1", 7, 11));
+        publications.add(1, new BookModel("Book2", 7, 122));
+        publications.add(2, new BookModel("Book3", 7, 6));
+        publications.add(3, new BookModel("Book4", 7, 2));
+        publications.add(4, new MagazineModel("Magazine1", 7, 12));
+        publications.add(5, new MagazineModel("Magazine2", 7, 54));
+        publications.add(6, new MagazineModel("Magazine3", 7, 32));
+        publications.add(7, new MagazineModel("Magazine4", 7, 23));
 
-        authors.add(0, new AuthorModel("Ahmed", "Ibrahim", 012334324, new AddressModel("1000", "Miami", "Alexandria", 1232), "N/A", "ABC", (Book) publications.get(0)));
-        authors.add(1, new AuthorModel("Omar", "Sherif", 015656, new AddressModel("1000", "Miami", "Alexandria", 1232), "N/A", "ABC", (Book) publications.get(1)));
-        authors.add(2, new AuthorModel("Mohamed", "AbdelRahman", 01562356, new AddressModel("1000", "Miami", "Alexandria", 1232), "N/A", "ABC", (Book) publications.get(2)));
-        authors.add(3, new AuthorModel("Ibrahim", "Hamouda", 01562356, new AddressModel("1000", "Miami", "Alexandria", 1232), "N/A", "ABC", (Book) publications.get(3)));
+        authors.add(0, new AuthorModel("Ahmed", "Ibrahim", 012334324, new AddressModel("1000", "Miami", "Alexandria", 1232), "N/A", "ABC", (BookModel) publications.get(0)));
+        authors.add(1, new AuthorModel("Omar", "Sherif", 015656, new AddressModel("1000", "Miami", "Alexandria", 1232), "N/A", "ABC", (BookModel) publications.get(1)));
+        authors.add(2, new AuthorModel("Mohamed", "AbdelRahman", 01562356, new AddressModel("1000", "Miami", "Alexandria", 1232), "N/A", "ABC", (BookModel) publications.get(2)));
+        authors.add(3, new AuthorModel("Ibrahim", "Hamouda", 01562356, new AddressModel("1000", "Miami", "Alexandria", 1232), "N/A", "ABC", (BookModel) publications.get(3)));
 
         members.add(0, new MemberModel("AbdelRaouf", "ElKaffash", new AddressModel("1000", "Miami", "Alexandria", 1232), 91545454, 1));
         members.add(1, new MemberModel("Sara", "Mohamed", new AddressModel("1000", "Miami", "Alexandria", 1232), 17113224, 2));

@@ -2,14 +2,16 @@ package main.java.library;
 
 import java.util.*;
 
+import main.java.model.MemberModel;
+
 public class Loan {
 
     private Date checkoutDate;
     private Date returnDate;
-    private Member mem;
+    private MemberModel mem;
     private Copy copy;
 
-    public Loan(Member member, Copy copy) {
+    public Loan(MemberModel member, Copy copy) {
         this.mem = member;
         this.copy = copy;
         Calendar checkout = Calendar.getInstance();
@@ -44,11 +46,11 @@ public class Loan {
         this.copy = copy;
     }
 
-    public Member getMember() {
+    public MemberModel getMember() {
         return mem;
     }
 
-    public void setMember(Member mem) {
+    public void setMember(MemberModel mem) {
         this.mem = mem;
     }
 

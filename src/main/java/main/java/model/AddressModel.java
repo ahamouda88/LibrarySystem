@@ -1,14 +1,13 @@
-package main.java.library;
+package main.java.model;
 
-public class Address {
+public class AddressModel {
 
     private String street;
     private String state;
     private String city;
     private int zipcode;
-    private Person person;
 
-    public Address(String street, String state, String city, int zipcode) {
+    public AddressModel(String street, String state, String city, int zipcode) {
         this.street = street;
         this.state = state;
         this.city = city;
@@ -45,13 +44,5 @@ public class Address {
 
     public void setzipcode(int zipcode) {
         this.zipcode = zipcode;
-    }
-
-    public Person getPerson() {
-        return this.person;
-    }
-
-    public void setPerson(Person p) {
-        this.person = p;
     }
 }

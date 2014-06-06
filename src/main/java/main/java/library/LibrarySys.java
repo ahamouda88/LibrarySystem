@@ -5,6 +5,9 @@ import java.util.*;
 
 import javax.swing.*;
 
+import main.java.model.AddressModel;
+import main.java.model.MemberModel;
+
 public class LibrarySys {
 
     public static void main(String[] args) {
@@ -19,8 +22,8 @@ public class LibrarySys {
          DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT);
          String s = df.format(d);
          
-         Address a1 = new Address("20","Alex","Miami",2015);
-         Member m1 = new Member("Omar","Ibrahim",a1, 12312312,333);
+         AddressModel a1 = new AddressModel("20","Alex","Miami",2015);
+         MemberModel m1 = new MemberModel("Omar","Ibrahim",a1, 12312312,333);
          Book b1 = new Book("Sindad",4,123);
          Copy c1 = new Copy(1,"aviable",b1);
          javax.swing.ImageIcon x=  new javax.swing.ImageIcon(this.getClass().getResource("/book-icon.png"));

@@ -2,6 +2,9 @@ package main.java.library;
 
 import javax.swing.*;
 
+import main.java.model.AddressModel;
+import main.java.model.MemberModel;
+
 public class MemeberGUI extends javax.swing.JDialog {
 
     private Library lb;
@@ -244,13 +247,13 @@ public class MemeberGUI extends javax.swing.JDialog {
     }
 
     public void addMember() {
-        Member member = new Member(firstname_txt.getText(), lastname_txt.getText(), addAddress(), Integer.parseInt(telephone_txt.getText()), Integer.parseInt(memberno_txt.getText()));
+        MemberModel member = new MemberModel(firstname_txt.getText(), lastname_txt.getText(), addAddress(), Integer.parseInt(telephone_txt.getText()), Integer.parseInt(memberno_txt.getText()));
         lb.addMember(member);
         clearDialog();
     }
 
-    public Address addAddress() {
-        Address a = new Address(street_txt.getText(), state_txt.getText(), city_txt.getText(), Integer.parseInt(zipcode_txt.getText()));
+    public AddressModel addAddress() {
+        AddressModel a = new AddressModel(street_txt.getText(), state_txt.getText(), city_txt.getText(), Integer.parseInt(zipcode_txt.getText()));
         return a;
     }
 

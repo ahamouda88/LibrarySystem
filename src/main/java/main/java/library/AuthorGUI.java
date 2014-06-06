@@ -1,6 +1,10 @@
 package main.java.library;
 
 import javax.swing.*;
+
+import main.java.model.AddressModel;
+import main.java.model.AuthorModel;
+
 import java.awt.*;
 
 public class AuthorGUI extends javax.swing.JDialog {
@@ -273,13 +277,13 @@ public class AuthorGUI extends javax.swing.JDialog {
     }
     
     public void addAuthor() {
-        Author author = new Author(firstname_txt.getText(), lastname_txt.getText(), Integer.parseInt(telephone_txt.getText()), addAddress(), credentials_txt.getText(), shortbio_txtarea.getText(), (Book) book_cb.getSelectedItem());
+        AuthorModel author = new AuthorModel(firstname_txt.getText(), lastname_txt.getText(), Integer.parseInt(telephone_txt.getText()), addAddress(), credentials_txt.getText(), shortbio_txtarea.getText(), (Book) book_cb.getSelectedItem());
         lb.addAuthor(author);
         clearDialog();
     }
     
-    public Address addAddress() {
-        Address a = new Address(street_txt.getText(), state_txt.getText(), city_txt.getText(), Integer.parseInt(zipcode_txt.getText()));
+    public AddressModel addAddress() {
+        AddressModel a = new AddressModel(street_txt.getText(), state_txt.getText(), city_txt.getText(), Integer.parseInt(zipcode_txt.getText()));
         return a;
     }
     

@@ -2,17 +2,19 @@ package main.java.library;
 
 import java.util.*;
 
+import main.java.model.MemberModel;
+
 public class Reservation {
 
     private Date statusDate;
-    private Member member;
+    private MemberModel member;
     private Publication publication;
     private Copy copy;
     private String status;
     //public enum Statusenum{Canceled,OnHold,Pending};
     //private Statusenum status;
 
-    public Reservation(Member m, Publication pub) {
+    public Reservation(MemberModel m, Publication pub) {
         this.member = m;
         this.publication = pub;
         this.setStatus("Pending");
@@ -48,11 +50,11 @@ public class Reservation {
         this.statusDate = statusDate;
     }
 
-    public Member getMember() {
+    public MemberModel getMember() {
         return member;
     }
 
-    public void setMember(Member member) {
+    public void setMember(MemberModel member) {
         this.member = member;
     }
 

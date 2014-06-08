@@ -1,4 +1,4 @@
-package main.java.librarysys.model;
+package librarysys.entities;
 
 
 public abstract class PersonModel {

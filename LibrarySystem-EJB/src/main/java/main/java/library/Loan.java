@@ -2,8 +2,8 @@ package main.java.library;
 
 import java.util.*;
 
-import main.java.librarysys.model.CopyModel;
-import main.java.librarysys.model.MemberModel;
+import librarysys.entities.CopyModel;
+import librarysys.entities.MemberModel;
 
 public class Loan {
 

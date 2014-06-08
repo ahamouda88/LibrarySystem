@@ -4,13 +4,13 @@ import java.awt.CardLayout;
 
 import javax.swing.*;
 
-import main.java.librarysys.model.AddressModel;
-import main.java.librarysys.model.AuthorModel;
-import main.java.librarysys.model.BookModel;
-import main.java.librarysys.model.CopyModel;
-import main.java.librarysys.model.MagazineModel;
-import main.java.librarysys.model.MemberModel;
-import main.java.librarysys.model.PublicationModel;
+import librarysys.entities.AddressModel;
+import librarysys.entities.AuthorModel;
+import librarysys.entities.BookModel;
+import librarysys.entities.CopyModel;
+import librarysys.entities.MagazineModel;
+import librarysys.entities.MemberModel;
+import librarysys.entities.PublicationModel;
 
 import java.awt.Component;
 import java.text.DateFormat;

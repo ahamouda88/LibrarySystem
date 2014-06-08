@@ -2,8 +2,8 @@ package main.java.library;
 
 import javax.swing.*;
 
-import main.java.librarysys.model.AddressModel;
-import main.java.librarysys.model.MemberModel;
+import librarysys.entities.AddressModel;
+import librarysys.entities.MemberModel;
 
 public class MemeberGUI extends javax.swing.JDialog {
 

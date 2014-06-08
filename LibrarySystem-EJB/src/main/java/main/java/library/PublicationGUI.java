@@ -2,8 +2,8 @@ package main.java.library;
 
 import javax.swing.*;
 
-import main.java.librarysys.model.BookModel;
-import main.java.librarysys.model.MagazineModel;
+import librarysys.entities.BookModel;
+import librarysys.entities.MagazineModel;
 
 public class PublicationGUI extends javax.swing.JDialog {
 

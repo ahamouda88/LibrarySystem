@@ -5,10 +5,10 @@ import java.util.*;
 
 import javax.swing.*;
 
-import main.java.librarysys.model.AddressModel;
-import main.java.librarysys.model.BookModel;
-import main.java.librarysys.model.CopyModel;
-import main.java.librarysys.model.MemberModel;
+import librarysys.entities.AddressModel;
+import librarysys.entities.BookModel;
+import librarysys.entities.CopyModel;
+import librarysys.entities.MemberModel;
 
 public class LibrarySys {
 

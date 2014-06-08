@@ -1,4 +1,4 @@
-package main.java.librarysys.model;
+package librarysys.entities;
 
 import main.java.library.Loan;
 import main.java.library.Reservation;

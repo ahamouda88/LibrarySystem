@@ -2,10 +2,10 @@ package main.java.library;
 
 import javax.swing.*;
 
-import main.java.librarysys.model.AddressModel;
-import main.java.librarysys.model.AuthorModel;
-import main.java.librarysys.model.BookModel;
-import main.java.librarysys.model.PublicationModel;
+import librarysys.entities.AddressModel;
+import librarysys.entities.AuthorModel;
+import librarysys.entities.BookModel;
+import librarysys.entities.PublicationModel;
 
 import java.awt.*;
 

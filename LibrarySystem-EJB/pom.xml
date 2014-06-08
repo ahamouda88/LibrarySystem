@@ -7,9 +7,7 @@
     <artifactId>LibrarySystem</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <groupId>main.java.library</groupId>
   <artifactId>LibrarySystem-EJB</artifactId>
-  <version>1.0-SNAPSHOT</version>
   <name>LibrarySystem-EJB</name>
   <url>http://maven.apache.org</url>
   <properties>

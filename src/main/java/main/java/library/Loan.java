@@ -19,7 +19,7 @@ public class Loan {
         Date d = checkout.getTime();
         this.checkoutDate = d;
         copy.setLoan(this);
-        member.addLoan(this);
+        //member.addLoan(this);
         //copy.addLoan(this);
     }
 

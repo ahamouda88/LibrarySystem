@@ -279,8 +279,8 @@ public class AuthorGUI extends javax.swing.JDialog {
     }
     
     public void addAuthor() {
-        AuthorModel author = new AuthorModel(firstname_txt.getText(), lastname_txt.getText(), Integer.parseInt(telephone_txt.getText()), addAddress(), credentials_txt.getText(), shortbio_txtarea.getText(), (BookModel) book_cb.getSelectedItem());
-        lb.addAuthor(author);
+//        AuthorModel author = new AuthorModel(firstname_txt.getText(), lastname_txt.getText(), Integer.parseInt(telephone_txt.getText()), addAddress(), credentials_txt.getText(), shortbio_txtarea.getText(), (BookModel) book_cb.getSelectedItem());
+//        lb.addAuthor(author);
         clearDialog();
     }
     

@@ -27,7 +27,7 @@ public class LibrarySys {
          AddressModel a1 = new AddressModel("20","Alex","Miami",2015);
          MemberModel m1 = new MemberModel("Omar","Ibrahim",a1, 12312312,333);
          BookModel b1 = new BookModel("Sindad",4,123);
-         CopyModel c1 = new CopyModel(1,"aviable",b1);
+//         CopyModel c1 = new CopyModel(1,"aviable",b1);
          javax.swing.ImageIcon x=  new javax.swing.ImageIcon(this.getClass().getResource("/book-icon.png"));
          /* Secenario 1
          m1.loan(c1);
@@ -35,7 +35,7 @@ public class LibrarySys {
          m1.returnit(c1);
          System.out.println(c1.getStatus());
          */
-         m1.reserve(b1);
+//         m1.reserve(b1);
          //System.out.println(b1.getFirstReservation().getStatus());
 
          JFrame f = new JFrame("Library System");

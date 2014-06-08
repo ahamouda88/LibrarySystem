@@ -960,7 +960,7 @@ public class Library extends JFrame {
                 }
             }
             if (c != null) {
-                m.loan(c);
+               // m.loan(c);
                 setMembersList(membersloans_lst);
             } else {
                 JOptionPane.showMessageDialog(this, "No Copies Available!!!", "Warning!!!!", JOptionPane.WARNING_MESSAGE);
@@ -983,7 +983,7 @@ public class Library extends JFrame {
             Loan l = (Loan) loans_lst.getSelectedValue();
             CopyModel c = l.getCopy();
             System.out.println(c.getStatus());
-            m.returnit(c);
+          //  m.returnit(c);
             System.out.println(c.getStatus());
             setLoansList(m);
             //Problem is Returning the loan and displaying the member's Loans//
@@ -1015,7 +1015,7 @@ public class Library extends JFrame {
         try {
             MemberModel m = (MemberModel) membersreserve_cb.getSelectedItem();
             PublicationModel p = (PublicationModel) publicatinsreserve_cb.getSelectedItem();
-            m.reserve(p);
+//            m.reserve(p);
             setMembersList(membersreserve_lst);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Invalid Member or Publication!!", "Error!!!!", JOptionPane.ERROR_MESSAGE);
@@ -1031,7 +1031,7 @@ public class Library extends JFrame {
             MemberModel m = (MemberModel) membersreserve_lst.getSelectedValue();
             Reservation res = (Reservation) reservations_lst.getSelectedValue();
             System.out.println(res.getStatus());
-            m.cancelReservation(res);
+//            m.cancelReservation(res);
             System.out.println(res.getStatus());
             setReservesList(m);
         }
@@ -1042,7 +1042,7 @@ public class Library extends JFrame {
             MemberModel m = (MemberModel) membersreserve_lst.getSelectedValue();
             Reservation res = (Reservation) reservations_lst.getSelectedValue();
             System.out.println(res.getStatus());
-            m.pickupReservation(res);
+//            m.pickupReservation(res);
             System.out.println(res.getStatus());
             setReservesList(m);
         }
@@ -1069,7 +1069,7 @@ public class Library extends JFrame {
 
     public void addCopy() {
         PublicationModel p = (PublicationModel) publicationlst.getSelectedValue();
-        CopyModel c = new CopyModel(p.getCopies().size() + 1, "Available", p);
+//        CopyModel c = new CopyModel(p.getCopies().size() + 1, "Available", p);
         noofcopies_lbl.setText("" + p.getCopies().size());
     }
 
@@ -1079,18 +1079,18 @@ public class Library extends JFrame {
 
     public void setPublicationsList(JList list) {
         list.setModel(publications);
-        list.setCellRenderer(new DefaultListCellRenderer() {
+//        list.setCellRenderer(new DefaultListCellRenderer() {
 
-            @Override
-            public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-                super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-                if (value != null) {
-                    PublicationModel myObj = (PublicationModel) value;
-                    setText(index + 1 + "- " + myObj.getTitle());
-                }
-                return this;
-            }
-        });
+//            @Override
+//            public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+//                super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+//                if (value != null) {
+//                    PublicationModel myObj = (PublicationModel) value;
+//                    setText(index + 1 + "- " + myObj.getTitle());
+//                }
+//                return this;
+//            }
+//        });
     }
 
     public void setAuthorsList(JList list) {
@@ -1148,7 +1148,7 @@ public class Library extends JFrame {
                         DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);
                         s = df.format(d);
                     }
-                    setText("- " + myObj.getCopy().getPublication().getTitle() + " - Return Date: " + s);
+//                    setText("- " + myObj.getCopy().getPublication().getTitle() + " - Return Date: " + s);
                 }
                 return this;
             }
@@ -1223,10 +1223,10 @@ public class Library extends JFrame {
         publications.add(6, new MagazineModel("Magazine3", 7, 32));
         publications.add(7, new MagazineModel("Magazine4", 7, 23));
 
-        authors.add(0, new AuthorModel("Ahmed", "Ibrahim", 012334324, new AddressModel("1000", "Miami", "Alexandria", 1232), "N/A", "ABC", (BookModel) publications.get(0)));
-        authors.add(1, new AuthorModel("Omar", "Sherif", 015656, new AddressModel("1000", "Miami", "Alexandria", 1232), "N/A", "ABC", (BookModel) publications.get(1)));
-        authors.add(2, new AuthorModel("Mohamed", "AbdelRahman", 01562356, new AddressModel("1000", "Miami", "Alexandria", 1232), "N/A", "ABC", (BookModel) publications.get(2)));
-        authors.add(3, new AuthorModel("Ibrahim", "Hamouda", 01562356, new AddressModel("1000", "Miami", "Alexandria", 1232), "N/A", "ABC", (BookModel) publications.get(3)));
+//        authors.add(0, new AuthorModel("Ahmed", "Ibrahim", 012334324, new AddressModel("1000", "Miami", "Alexandria", 1232), "N/A", "ABC", (BookModel) publications.get(0)));
+//        authors.add(1, new AuthorModel("Omar", "Sherif", 015656, new AddressModel("1000", "Miami", "Alexandria", 1232), "N/A", "ABC", (BookModel) publications.get(1)));
+//        authors.add(2, new AuthorModel("Mohamed", "AbdelRahman", 01562356, new AddressModel("1000", "Miami", "Alexandria", 1232), "N/A", "ABC", (BookModel) publications.get(2)));
+//        authors.add(3, new AuthorModel("Ibrahim", "Hamouda", 01562356, new AddressModel("1000", "Miami", "Alexandria", 1232), "N/A", "ABC", (BookModel) publications.get(3)));
 
         members.add(0, new MemberModel("AbdelRaouf", "ElKaffash", new AddressModel("1000", "Miami", "Alexandria", 1232), 91545454, 1));
         members.add(1, new MemberModel("Sara", "Mohamed", new AddressModel("1000", "Miami", "Alexandria", 1232), 17113224, 2));

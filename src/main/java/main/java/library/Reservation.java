@@ -23,13 +23,13 @@ public class Reservation {
         Calendar statusdate = Calendar.getInstance();
         Date d = statusdate.getTime();
         this.statusDate = d;
-        pub.addReservation(this);
-        m.addReservation(this);
+        //pub.addReservation(this);
+        //m.addReservation(this);
 // NEWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWw
         for (CopyModel c : publication.getCopies()) {
             if (c.getStatus().equals("Available")) {
                 System.out.println(c.getStatus());
-                c.hold();
+               // c.hold();
                 System.out.println(c.getStatus());
             }
         }
@@ -96,7 +96,7 @@ public class Reservation {
             Calendar statusdate = Calendar.getInstance();
             Date d = statusdate.getTime();
             this.setStatusDate(d);
-            this.member.loan(copy);
+            //this.member.loan(copy);
         }
     }
 

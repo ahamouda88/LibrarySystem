@@ -1,11 +1,18 @@
 package librarysys.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Address")
 public class AddressModel {
 
     private String street;
     private String state;
     private String city;
     private int zipcode;
+    
+    public AddressModel(){}
 
     public AddressModel(String street, String state, String city, int zipcode) {
         this.street = street;

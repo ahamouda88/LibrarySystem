@@ -2,9 +2,14 @@ package librarysys.entities;
 
 import java.util.*;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import main.java.library.Loan;
 import main.java.library.Reservation;
 
+@Entity
+@Table(name = "Member")
 public class MemberModel extends PersonModel {
 
     private int member_no;

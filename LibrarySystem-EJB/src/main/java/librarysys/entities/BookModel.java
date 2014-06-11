@@ -2,6 +2,11 @@ package librarysys.entities;
 
 import java.util.*;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Book")
 public class BookModel extends PublicationModel {
 
     private int ISBN;

@@ -2,6 +2,9 @@ package librarysys.entities;
 
 import java.util.*;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import main.java.library.Reservation;
 
 public abstract class PublicationModel {

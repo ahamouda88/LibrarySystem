@@ -1,8 +1,13 @@
 package librarysys.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import main.java.library.Loan;
 import main.java.library.Reservation;
 
+@Entity
+@Table(name = "Copy")
 public class CopyModel {
 
     private int copyno;

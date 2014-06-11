@@ -1,6 +1,10 @@
 package librarysys.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "Magazine")
 public class MagazineModel extends PublicationModel {
 
     private int issueno;

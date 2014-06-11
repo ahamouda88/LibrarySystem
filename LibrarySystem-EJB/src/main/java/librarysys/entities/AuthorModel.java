@@ -2,6 +2,11 @@ package librarysys.entities;
 
 import java.util.*;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Author")
 public class AuthorModel extends PersonModel {
 
     private String credentials;

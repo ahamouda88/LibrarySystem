@@ -1,10 +1,29 @@
 package librarysys.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "PERSON")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class PersonModel {
+	
+	@Column(name = "id")
+	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	@Column(name = "first_name")
 	private String firstname;
+	@Column(name = "last_name")
 	private String lastname;
+	@Column(name = "phone")
 	private int telephone;
+	//Association
 	private AddressModel address;
 	
 	public PersonModel(){}
@@ -14,6 +33,14 @@ public abstract class PersonModel {
 		this.lastname = lastname;
 		this.telephone = telephone;
 		this.address = address;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getFirstname() {

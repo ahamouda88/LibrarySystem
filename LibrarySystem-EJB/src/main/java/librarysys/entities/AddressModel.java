@@ -1,15 +1,26 @@
 package librarysys.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Address")
+@Table(name = "ADDRESS")
 public class AddressModel {
 
-    private String street;
+	@Column(name = "id")
+	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	@Column(name = "street")
+	private String street;
+	@Column(name = "state")
     private String state;
+	@Column(name = "city")
     private String city;
+	@Column(name = "zip_code")
     private int zipcode;
     
     public AddressModel(){}
@@ -21,6 +32,22 @@ public class AddressModel {
         this.zipcode = zipcode;
     }
 
+    public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getZipcode() {
+		return zipcode;
+	}
+
+	public void setZipcode(int zipcode) {
+		this.zipcode = zipcode;
+	}
+    
     public String getStreet() {
         return street;
     }
@@ -44,12 +71,5 @@ public class AddressModel {
     public void setCity(String s) {
         this.city = s;
     }
-
-    public int getzipcode() {
-        return zipcode;
-    }
-
-    public void setzipcode(int zipcode) {
-        this.zipcode = zipcode;
-    }
+    
 }

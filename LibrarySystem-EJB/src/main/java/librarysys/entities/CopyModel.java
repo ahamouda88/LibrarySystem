@@ -1,17 +1,27 @@
 package librarysys.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import main.java.library.Loan;
 import main.java.library.Reservation;
 
 @Entity
-@Table(name = "Copy")
+@Table(name = "COPY")
 public class CopyModel {
 
+	@Column(name = "id")
+	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	@Column(name = "copy_no")
     private int copyno;
+	@Column(name = "status")
     public String status;
+	
     private PublicationModel pub;
     private Loan loan;
     private Reservation reservation;
@@ -22,6 +32,15 @@ public class CopyModel {
 		this.copyno = copyno;
 		this.status = status;
 	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public int getCopyno() {
 		return copyno;
 	}

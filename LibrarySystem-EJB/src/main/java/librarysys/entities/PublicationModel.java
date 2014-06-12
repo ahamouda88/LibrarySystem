@@ -2,16 +2,32 @@ package librarysys.entities;
 
 import java.util.*;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 import main.java.library.Reservation;
 
+@Entity
+@Table(name = "PUBLICATION")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class PublicationModel {
 
+	@Column(name = "id")
+	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	@Column(name = "title")
     private String title;
+	@Column(name = "max_checkout_length")
     private int maxcheckoutlength;
+	// Association
     private List<CopyModel> copies = new ArrayList<CopyModel>();
+    // Association
     private List<Reservation> reservations = new LinkedList<Reservation>();
     
     public  PublicationModel(){}
@@ -21,7 +37,15 @@ public abstract class PublicationModel {
         this.maxcheckoutlength = max;
     }
 
-    public String getTitle() {
+    public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
         return this.title;
     }
 

@@ -2,18 +2,24 @@ package librarysys.entities;
 
 import java.util.*;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import main.java.library.Loan;
 import main.java.library.Reservation;
 
 @Entity
-@Table(name = "Member")
+@Table(name = "MEMBER")
+@PrimaryKeyJoinColumn(name = "id")
 public class MemberModel extends PersonModel {
 
+	@Column(name = "member_no")
     private int member_no;
-    private List<Loan> loans = new ArrayList<Loan>();;
+	// Association
+    private List<Loan> loans = new ArrayList<Loan>();
+    // Association
     private List<Reservation> reservations = new ArrayList<Reservation>();
 
     public MemberModel(){}

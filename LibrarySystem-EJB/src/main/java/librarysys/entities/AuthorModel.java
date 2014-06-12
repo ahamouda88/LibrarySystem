@@ -2,15 +2,21 @@ package librarysys.entities;
 
 import java.util.*;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Author")
+@Table(name = "AUTHOR")
+@PrimaryKeyJoinColumn(name = "id")
 public class AuthorModel extends PersonModel {
 
+	@Column(name = "cerdentials")
     private String credentials;
+	@Column(name = "short_bio")
     private String short_bio;
+	// Association
     private List<BookModel> books = new ArrayList<BookModel>();
     
     public AuthorModel(){}

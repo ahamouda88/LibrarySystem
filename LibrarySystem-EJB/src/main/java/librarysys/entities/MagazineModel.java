@@ -1,12 +1,16 @@
 package librarysys.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Magazine")
+@Table(name = "MAGAZINE")
+@PrimaryKeyJoinColumn(name = "id")
 public class MagazineModel extends PublicationModel {
 
+	@Column(name = "issue_no")
     private int issueno;
     
     public MagazineModel(){}

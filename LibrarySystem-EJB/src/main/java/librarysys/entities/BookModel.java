@@ -2,14 +2,19 @@ package librarysys.entities;
 
 import java.util.*;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Book")
+@Table(name = "BOOK")
+@PrimaryKeyJoinColumn(name = "id")
 public class BookModel extends PublicationModel {
 
+	@Column(name = "ISBN")
     private int ISBN;
+	// Association
     private List<AuthorModel> authors = new ArrayList<AuthorModel>();
 
     public BookModel(){}
@@ -19,7 +24,7 @@ public class BookModel extends PublicationModel {
         this.ISBN = ISBN;                
     }
 
-    public int getISBN() {
+	public int getISBN() {
         return this.ISBN;
     }
 

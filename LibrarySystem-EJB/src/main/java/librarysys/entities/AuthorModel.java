@@ -4,6 +4,9 @@ import java.util.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -16,8 +19,11 @@ public class AuthorModel extends PersonModel {
     private String credentials;
 	@Column(name = "short_bio")
     private String short_bio;
-	// Association
-    private List<BookModel> books = new ArrayList<BookModel>();
+	@ManyToMany
+	@JoinTable(name = "Author_Book", 
+				joinColumns = {@JoinColumn(name = "author_id", unique = true)},
+				inverseJoinColumns = {@JoinColumn(name = "book_id")})
+    private List<BookModel> books;
     
     public AuthorModel(){}
 

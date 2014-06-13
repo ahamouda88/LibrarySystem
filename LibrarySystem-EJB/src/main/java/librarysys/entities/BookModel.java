@@ -4,6 +4,7 @@ import java.util.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -14,8 +15,8 @@ public class BookModel extends PublicationModel {
 
 	@Column(name = "ISBN")
     private int ISBN;
-	// Association
-    private List<AuthorModel> authors = new ArrayList<AuthorModel>();
+	@ManyToMany(mappedBy = "books")
+    private List<AuthorModel> authors;
 
     public BookModel(){}
     

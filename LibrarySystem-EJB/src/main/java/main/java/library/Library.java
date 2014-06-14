@@ -915,7 +915,7 @@ public class Library extends JFrame {
 
     private void addauthor_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addauthor_btnActionPerformed
         AuthorGUI a = new AuthorGUI(this, true);
-        a.setLibrary(this);
+//        a.setLibrary(this);
         a.fillComboBox();
         a.setVisible(true);
         setVisibility("listscard");
@@ -924,7 +924,7 @@ public class Library extends JFrame {
 
     private void addmember_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addmember_btnActionPerformed
         MemeberGUI m = new MemeberGUI(this, true);
-        m.setLibrary(this);
+//        m.setLibrary(this);
         m.setVisible(true);
         setVisibility("listscard");
         setMembersList(memberList);
@@ -932,7 +932,7 @@ public class Library extends JFrame {
 
     private void addPub_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPub_btnActionPerformed
         PublicationGUI d = new PublicationGUI(this, true);
-        d.setLibrary(this);
+//        d.setLibrary(this);
         d.setVisible(true);
         setVisibility("listscard");
         setPublicationsList(publicationList);

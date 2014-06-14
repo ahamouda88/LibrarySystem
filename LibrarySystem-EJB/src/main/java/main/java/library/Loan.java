@@ -2,64 +2,97 @@ package main.java.library;
 
 import java.util.*;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import librarysys.entities.CopyModel;
 import librarysys.entities.MemberModel;
 
+@Entity
+@Table(name = "LOAN")
 public class Loan {
 
+	@Column(name = "id")
+	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	@Column(name = "checkout_date")
     private Date checkoutDate;
+	@Column(name = "return_date")
     private Date returnDate;
-    private MemberModel mem;
+	@ManyToOne
+	@JoinColumn(name = "member_id")
+    private MemberModel memberModel;
+	@OneToOne
+	@JoinColumn(name = "copy_id")
     private CopyModel copy;
 
-    public Loan(MemberModel member, CopyModel copy) {
-        this.mem = member;
+    public Loan() {}
+    
+    public Loan(MemberModel memberModel, CopyModel copy) {
+        this.memberModel = memberModel;
         this.copy = copy;
         Calendar checkout = Calendar.getInstance();
         Date d = checkout.getTime();
         this.checkoutDate = d;
-        copy.setLoan(this);
+        //copy.setLoan(this);
         //member.addLoan(this);
         //copy.addLoan(this);
     }
 
-    public Date getCheckoutdate() {
-        return this.checkoutDate;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public void setCheckoutdate(Date checkoutdate) {
-        this.checkoutDate = checkoutdate;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public Date getReturndate() {
-        return this.returnDate;
-    }
+	public Date getCheckoutDate() {
+		return checkoutDate;
+	}
 
-    public void setReturndate(Date returndate) {
-        this.returnDate = returndate;
-    }
+	public void setCheckoutDate(Date checkoutDate) {
+		this.checkoutDate = checkoutDate;
+	}
 
-    public CopyModel getCopy() {
-        return copy;
-    }
+	public Date getReturnDate() {
+		return returnDate;
+	}
 
-    public void setCopy(CopyModel copy) {
-        this.copy = copy;
-    }
+	public void setReturnDate(Date returnDate) {
+		this.returnDate = returnDate;
+	}
 
-    public MemberModel getMember() {
-        return mem;
-    }
+	public MemberModel getMemberModel() {
+		return memberModel;
+	}
 
-    public void setMember(MemberModel mem) {
-        this.mem = mem;
-    }
+	public void setMemberModel(MemberModel memberModel) {
+		this.memberModel = memberModel;
+	}
 
-    public boolean isReturned() {
-        if (this.getReturndate() != null) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+	public CopyModel getCopy() {
+		return copy;
+	}
+
+	public void setCopy(CopyModel copy) {
+		this.copy = copy;
+	}
+    
+    
+
+//	public boolean isReturned() {
+//        if (this.getReturndate() != null) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
 }

@@ -1143,11 +1143,11 @@ public class Library extends JFrame {
                 if (value != null) {
                     String s = "Not Returned Yet";
                     Loan myObj = (Loan) value;
-                    if (myObj.isReturned()) {
-                        Date d = myObj.getReturndate();
-                        DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);
-                        s = df.format(d);
-                    }
+//                    if (myObj.isReturned()) {
+//                        //Date d = myObj.getReturndate();
+//                        DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);
+//                        s = df.format(d);
+//                    }
 //                    setText("- " + myObj.getCopy().getPublication().getTitle() + " - Return Date: " + s);
                 }
                 return this;

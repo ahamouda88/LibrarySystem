@@ -4,6 +4,7 @@ import java.util.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -17,7 +18,7 @@ public class MemberModel extends PersonModel {
 
 	@Column(name = "member_no")
     private int member_no;
-	// Association
+	@OneToMany(mappedBy = "memberModel")
     private List<Loan> loans = new ArrayList<Loan>();
     // Association
     private List<Reservation> reservations = new ArrayList<Reservation>();

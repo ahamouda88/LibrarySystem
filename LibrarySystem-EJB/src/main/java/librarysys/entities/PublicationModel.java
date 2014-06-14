@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -27,9 +26,8 @@ public abstract class PublicationModel {
     private String title;
 	@Column(name = "max_checkout_length")
     private int maxcheckoutlength;
-	@OneToMany
-	@JoinColumn(name = "publication_id")
-    private List<CopyModel> copies = new ArrayList<CopyModel>();
+	@OneToMany(mappedBy = "publicationModel")
+	private List<CopyModel> copies = new ArrayList<CopyModel>();
     // Association
     private List<Reservation> reservations = new LinkedList<Reservation>();
     

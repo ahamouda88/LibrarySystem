@@ -26,10 +26,11 @@ public abstract class PublicationModel {
     private String title;
 	@Column(name = "max_checkout_length")
     private int maxcheckoutlength;
+	// I can change it to unidirectional association
 	@OneToMany(mappedBy = "publicationModel")
 	private List<CopyModel> copies = new ArrayList<CopyModel>();
-    // Association
-    private List<Reservation> reservations = new LinkedList<Reservation>();
+//    @OneToMany(mappedBy = "publicationModel")
+//    private List<Reservation> reservations = new LinkedList<Reservation>();
     
     public  PublicationModel(){}
 
@@ -78,13 +79,13 @@ public abstract class PublicationModel {
 		this.copies = copies;
 	}
 
-	public List<Reservation> getReservations() {
-		return reservations;
-	}
-
-	public void setReservations(List<Reservation> reservations) {
-		this.reservations = reservations;
-	}
+//	public List<Reservation> getReservations() {
+//		return reservations;
+//	}
+//
+//	public void setReservations(List<Reservation> reservations) {
+//		this.reservations = reservations;
+//	}
 
    
 }

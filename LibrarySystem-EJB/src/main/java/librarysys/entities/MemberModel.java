@@ -13,14 +13,15 @@ import main.java.library.Reservation;
 
 @Entity
 @Table(name = "MEMBER")
-@PrimaryKeyJoinColumn(name = "id")
+@PrimaryKeyJoinColumn(name = "member_id", referencedColumnName = "id")
 public class MemberModel extends PersonModel {
 
 	@Column(name = "member_no")
     private int member_no;
 	@OneToMany(mappedBy = "memberModel")
     private List<Loan> loans = new ArrayList<Loan>();
-    // Association
+	// I can change it to unidirectional association
+	@OneToMany(mappedBy = "memberModel")
     private List<Reservation> reservations = new ArrayList<Reservation>();
 
     public MemberModel(){}

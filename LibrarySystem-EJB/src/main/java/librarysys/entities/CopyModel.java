@@ -7,9 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import main.java.library.Loan;
 import main.java.library.Reservation;
 
 @Entity
@@ -26,8 +26,9 @@ public class CopyModel {
 	@ManyToOne
 	@JoinColumn(name = "publication_id")
     private PublicationModel publicationModel;
-//    private Loan loan;
-//    private Reservation reservation;
+
+	@OneToMany(mappedBy = "copyModel")
+    private Reservation reservation;
     
     public CopyModel(){}
     
@@ -47,15 +48,19 @@ public class CopyModel {
 	public int getCopyno() {
 		return copyno;
 	}
+	
 	public void setCopyno(int copyno) {
 		this.copyno = copyno;
 	}
+	
 	public String getStatus() {
 		return status;
 	}
+	
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
 	public PublicationModel getPublicationModel() {
 		return publicationModel;
 	}
@@ -63,17 +68,13 @@ public class CopyModel {
 	public void setPublicationModel(PublicationModel publicationModel) {
 		this.publicationModel = publicationModel;
 	}
-//	public Loan getLoan() {
-//		return loan;
-//	}
-//	public void setLoan(Loan loan) {
-//		this.loan = loan;
-//	}
-//	public Reservation getReservation() {
-//		return reservation;
-//	}
-//	public void setReservation(Reservation reservation) {
-//		this.reservation = reservation;
-//	}
+
+	public Reservation getReservation() {
+		return reservation;
+	}
+	
+	public void setReservation(Reservation reservation) {
+		this.reservation = reservation;
+	}
 
 }

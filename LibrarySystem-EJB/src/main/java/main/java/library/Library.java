@@ -1165,7 +1165,7 @@ public class Library extends JFrame {
                 super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
                 if (value != null) {
                     Reservation myObj = (Reservation) value;
-                    setText("- " + myObj.getPublication().getTitle() + " - Status: " + myObj.getStatus());
+          //          setText("- " + myObj.getPublication().getTitle() + " - Status: " + myObj.getStatus());
                 }
                 return this;
             }

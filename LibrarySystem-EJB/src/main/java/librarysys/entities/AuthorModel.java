@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "AUTHOR")
-@PrimaryKeyJoinColumn(name = "id")
+@PrimaryKeyJoinColumn(name = "author_id", referencedColumnName = "id")
 public class AuthorModel extends PersonModel {
 
 	@Column(name = "cerdentials")

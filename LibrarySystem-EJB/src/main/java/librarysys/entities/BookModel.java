@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "BOOK")
-@PrimaryKeyJoinColumn(name = "id")
+@PrimaryKeyJoinColumn(name = "book_id", referencedColumnName = "id")
 public class BookModel extends PublicationModel {
 
 	@Column(name = "ISBN")

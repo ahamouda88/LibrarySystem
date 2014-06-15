@@ -2,23 +2,46 @@ package main.java.library;
 
 import java.util.*;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import librarysys.entities.CopyModel;
 import librarysys.entities.MemberModel;
 import librarysys.entities.PublicationModel;
 
+/*
+ * Added a Reservation class to keep track of the reservation history for each member and copy.
+ * */
+
+@Entity
+@Table(name = "RESERVATION")
 public class Reservation {
 
+	@Column(name = "status_date")
     private Date statusDate;
-    private MemberModel member;
-    private PublicationModel publication;
-    private CopyModel copy;
+	@Column(name = "status")
     private String status;
+//    @ManyToOne
+//    @JoinColumn(name = "publication_id")
+//    private PublicationModel publication;
+	@ManyToOne
+	@JoinColumn(name = "copy_id")
+    private CopyModel copyModel;
+	@ManyToOne
+	@JoinColumn(name = "member_id")
+    private MemberModel memberModel;
+    
     //public enum Statusenum{Canceled,OnHold,Pending};
     //private Statusenum status;
 
+    public Reservation(){}
+    
     public Reservation(MemberModel m, PublicationModel pub) {
-        this.member = m;
-        this.publication = pub;
+        this.memberModel = m;
+      //  this.publication = pub;
         this.setStatus("Pending");
         Calendar statusdate = Calendar.getInstance();
         Date d = statusdate.getTime();
@@ -26,49 +49,65 @@ public class Reservation {
         //pub.addReservation(this);
         //m.addReservation(this);
 // NEWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWw
-        for (CopyModel c : publication.getCopies()) {
-            if (c.getStatus().equals("Available")) {
-                System.out.println(c.getStatus());
-               // c.hold();
-                System.out.println(c.getStatus());
-            }
-        }
+//        for (CopyModel c : publication.getCopies()) {
+//            if (c.getStatus().equals("Available")) {
+//                System.out.println(c.getStatus());
+//               // c.hold();
+//                System.out.println(c.getStatus());
+//            }
+//        }
 // NEWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWw
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 
     public Date getStatusDate() {
-        return statusDate;
-    }
+		return statusDate;
+	}
 
-    public void setStatusDate(Date statusDate) {
-        this.statusDate = statusDate;
-    }
 
-    public MemberModel getMember() {
-        return member;
-    }
+	public void setStatusDate(Date statusDate) {
+		this.statusDate = statusDate;
+	}
 
-    public void setMember(MemberModel member) {
-        this.member = member;
-    }
 
-    public PublicationModel getPublication() {
-        return publication;
-    }
+	public String getStatus() {
+		return status;
+	}
 
-    public void setPublication(PublicationModel publication) {
-        this.publication = publication;
-    }
 
-    public void cancel() {
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+//	public PublicationModel getPublicationModel() {
+//		return publicationModel;
+//	}
+//
+//	public void setPublicationModel(PublicationModel publicationModel) {
+//		this.publicationModel = publicationModel;
+//	}
+
+	public CopyModel getCopyModel() {
+		return copyModel;
+	}
+
+
+	public void setCopyModel(CopyModel copyModel) {
+		this.copyModel = copyModel;
+	}
+
+
+	public MemberModel getMemberModel() {
+		return memberModel;
+	}
+
+
+	public void setMemberModel(MemberModel memberModel) {
+		this.memberModel = memberModel;
+	}
+
+
+	public void cancel() {
         if (!this.getStatus().equals("Fulfilled")) {
             this.setStatus("Canceled");
             Calendar statusdate = Calendar.getInstance();
@@ -76,8 +115,8 @@ public class Reservation {
             this.setStatusDate(d);
             //this.publication.getAllReservations().remove(this);
             // NEWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWw
-            if (this.copy != null) {
-                this.copy.setStatus("Available");
+            if (this.copyModel != null) {
+                this.copyModel.setStatus("Available");
             }
         }
         // NEWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWw
@@ -105,6 +144,6 @@ public class Reservation {
         Calendar statusdate = Calendar.getInstance();
         Date d = statusdate.getTime();
         this.setStatusDate(d);
-        this.copy = c;
+        this.copyModel = c;
     }
 }

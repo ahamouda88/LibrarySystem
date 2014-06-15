@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,7 +25,8 @@ public abstract class PersonModel {
 	private String lastname;
 	@Column(name = "phone")
 	private int telephone;
-	//Association
+	@OneToOne
+	@JoinColumn(name = "person_id")
 	private AddressModel address;
 	
 	public PersonModel(){}

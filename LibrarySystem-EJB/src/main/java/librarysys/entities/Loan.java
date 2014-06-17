@@ -1,4 +1,4 @@
-package main.java.library;
+package librarysys.entities;
 
 import java.util.*;
 
@@ -11,9 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import librarysys.entities.CopyModel;
-import librarysys.entities.MemberModel;
 
 @Entity
 @Table(name = "LOAN")

@@ -8,9 +8,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-import main.java.library.Loan;
-import main.java.library.Reservation;
-
 @Entity
 @Table(name = "MEMBER")
 @PrimaryKeyJoinColumn(name = "member_id", referencedColumnName = "id")

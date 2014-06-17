@@ -12,8 +12,6 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import main.java.library.Reservation;
-
 @Entity
 @Table(name = "PUBLICATION")
 @Inheritance(strategy = InheritanceType.JOINED)

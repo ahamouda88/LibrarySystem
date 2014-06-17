@@ -1,4 +1,4 @@
-package main.java.library;
+package librarysys.entities;
 
 import java.util.*;
 
@@ -7,10 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import librarysys.entities.CopyModel;
-import librarysys.entities.MemberModel;
-import librarysys.entities.PublicationModel;
 
 /*
  * Added a Reservation class to keep track of the reservation history for each member and copy.

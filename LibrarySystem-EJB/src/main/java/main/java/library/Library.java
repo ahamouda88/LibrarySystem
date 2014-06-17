@@ -8,9 +8,11 @@ import librarysys.entities.AddressModel;
 import librarysys.entities.AuthorModel;
 import librarysys.entities.BookModel;
 import librarysys.entities.CopyModel;
+import librarysys.entities.Loan;
 import librarysys.entities.MagazineModel;
 import librarysys.entities.MemberModel;
 import librarysys.entities.PublicationModel;
+import librarysys.entities.Reservation;
 
 import java.awt.Component;
 import java.text.DateFormat;

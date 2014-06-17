@@ -10,8 +10,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import main.java.library.Reservation;
-
 @Entity
 @Table(name = "COPY")
 public class CopyModel {

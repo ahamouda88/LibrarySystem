@@ -25,17 +25,17 @@ public class Reservation {
 //    private PublicationModel publication;
 	@ManyToOne
 	@JoinColumn(name = "copy_id")
-    private CopyModel copyModel;
+    private Copy copyModel;
 	@ManyToOne
 	@JoinColumn(name = "member_id")
-    private MemberModel memberModel;
+    private Member memberModel;
     
     //public enum Statusenum{Canceled,OnHold,Pending};
     //private Statusenum status;
 
     public Reservation(){}
     
-    public Reservation(MemberModel m, PublicationModel pub) {
+    public Reservation(Member m, Publication pub) {
         this.memberModel = m;
       //  this.publication = pub;
         this.setStatus("Pending");
@@ -83,22 +83,22 @@ public class Reservation {
 //		this.publicationModel = publicationModel;
 //	}
 
-	public CopyModel getCopyModel() {
+	public Copy getCopyModel() {
 		return copyModel;
 	}
 
 
-	public void setCopyModel(CopyModel copyModel) {
+	public void setCopyModel(Copy copyModel) {
 		this.copyModel = copyModel;
 	}
 
 
-	public MemberModel getMemberModel() {
+	public Member getMemberModel() {
 		return memberModel;
 	}
 
 
-	public void setMemberModel(MemberModel memberModel) {
+	public void setMemberModel(Member memberModel) {
 		this.memberModel = memberModel;
 	}
 
@@ -135,7 +135,7 @@ public class Reservation {
         }
     }
 
-    public void hold(CopyModel c) {
+    public void hold(Copy c) {
         this.setStatus("Onhold");
         Calendar statusdate = Calendar.getInstance();
         Date d = statusdate.getTime();

@@ -2,10 +2,10 @@ package main.java.library;
 
 import javax.swing.*;
 
-import librarysys.entities.AddressModel;
-import librarysys.entities.AuthorModel;
-import librarysys.entities.BookModel;
-import librarysys.entities.PublicationModel;
+import librarysys.entities.Address;
+import librarysys.entities.Author;
+import librarysys.entities.Book;
+import librarysys.entities.Publication;
 
 import java.awt.*;
 
@@ -48,8 +48,8 @@ public class AuthorGUI extends javax.swing.JDialog {
 
     }
     
-    public AddressModel addAddress() {
-        AddressModel a = new AddressModel(street_txt.getText(), state_txt.getText(), city_txt.getText(), Integer.parseInt(zipcode_txt.getText()));
+    public Address addAddress() {
+        Address a = new Address(street_txt.getText(), state_txt.getText(), city_txt.getText(), Integer.parseInt(zipcode_txt.getText()));
         return a;
     }
     
@@ -70,15 +70,15 @@ public class AuthorGUI extends javax.swing.JDialog {
                 });
         }*/
         for (int i = 0; i < lb.getallPublicatins().size(); i++) {
-            PublicationModel p = (PublicationModel) lb.getallPublicatins().getElementAt(i);
-            if (p instanceof BookModel) {
+            Publication p = (Publication) lb.getallPublicatins().getElementAt(i);
+            if (p instanceof Book) {
                 book_cb.addItem(p);
                 book_cb.setRenderer(new DefaultListCellRenderer() {
                     @Override
                     public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                         super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
                         if (value != null) {
-                            PublicationModel myObj = (PublicationModel) value;
+                            Publication myObj = (Publication) value;
                             setText(myObj.getTitle());
                         }
                         return this;

@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "COPY")
-public class CopyModel {
+public class Copy {
 
 	@Column(name = "id")
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,14 +23,14 @@ public class CopyModel {
     public String status;
 	@ManyToOne
 	@JoinColumn(name = "publication_id")
-    private PublicationModel publicationModel;
+    private Publication publicationModel;
 
 	@OneToMany(mappedBy = "copyModel")
     private Reservation reservation;
     
-    public CopyModel(){}
+    public Copy(){}
     
-	public CopyModel(int copyno, String status) {
+	public Copy(int copyno, String status) {
 		this.copyno = copyno;
 		this.status = status;
 	}
@@ -59,11 +59,11 @@ public class CopyModel {
 		this.status = status;
 	}
 	
-	public PublicationModel getPublicationModel() {
+	public Publication getPublicationModel() {
 		return publicationModel;
 	}
 
-	public void setPublicationModel(PublicationModel publicationModel) {
+	public void setPublicationModel(Publication publicationModel) {
 		this.publicationModel = publicationModel;
 	}
 

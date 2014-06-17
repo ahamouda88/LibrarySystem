@@ -11,16 +11,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "BOOK")
 @PrimaryKeyJoinColumn(name = "book_id", referencedColumnName = "id")
-public class BookModel extends PublicationModel {
+public class Book extends Publication {
 
 	@Column(name = "ISBN")
     private int ISBN;
 	@ManyToMany(mappedBy = "books")
-    private List<AuthorModel> authors;
+    private List<Author> authors;
 
-    public BookModel(){}
+    public Book(){}
     
-    public BookModel(String title, int max, int ISBN) {
+    public Book(String title, int max, int ISBN) {
         super(title, max);
         this.ISBN = ISBN;                
     }
@@ -33,11 +33,11 @@ public class BookModel extends PublicationModel {
         this.ISBN = ISBN;
     }
 
-	public List<AuthorModel> getAuthors() {
+	public List<Author> getAuthors() {
 		return authors;
 	}
 
-	public void setAuthors(List<AuthorModel> authors) {
+	public void setAuthors(List<Author> authors) {
 		this.authors = authors;
 	}
    

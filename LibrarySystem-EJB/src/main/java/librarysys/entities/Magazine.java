@@ -8,14 +8,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "MAGAZINE")
 @PrimaryKeyJoinColumn(name = "magazine_id", referencedColumnName = "id")
-public class MagazineModel extends PublicationModel {
+public class Magazine extends Publication {
 
 	@Column(name = "issue_no")
     private int issueno;
     
-    public MagazineModel(){}
+    public Magazine(){}
 
-    public MagazineModel(String title, int max, int issueno) {
+    public Magazine(String title, int max, int issueno) {
         super(title, max);
         this.issueno = issueno;
     }

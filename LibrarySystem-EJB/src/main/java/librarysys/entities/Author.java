@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "AUTHOR")
 @PrimaryKeyJoinColumn(name = "author_id", referencedColumnName = "id")
-public class AuthorModel extends PersonModel {
+public class Author extends Person {
 
 	@Column(name = "cerdentials")
     private String credentials;
@@ -23,11 +23,11 @@ public class AuthorModel extends PersonModel {
 	@JoinTable(name = "Author_Book", 
 				joinColumns = {@JoinColumn(name = "author_id", unique = true)},
 				inverseJoinColumns = {@JoinColumn(name = "book_id")})
-    private List<BookModel> books;
+    private List<Book> books;
     
-    public AuthorModel(){}
+    public Author(){}
 
-    public AuthorModel(String firstname, String lastname, int telephone, AddressModel address, String credentials, String shortbio) {
+    public Author(String firstname, String lastname, int telephone, Address address, String credentials, String shortbio) {
         super(firstname, lastname, telephone, address);
         this.credentials = credentials;
         this.short_bio = shortbio;
@@ -49,11 +49,11 @@ public class AuthorModel extends PersonModel {
 		this.short_bio = short_bio;
 	}
 
-	public List<BookModel> getBooks() {
+	public List<Book> getBooks() {
 		return books;
 	}
 
-	public void setBooks(List<BookModel> books) {
+	public void setBooks(List<Book> books) {
 		this.books = books;
 	}
 

@@ -25,14 +25,14 @@ public class Loan {
     private Date returnDate;
 	@ManyToOne
 	@JoinColumn(name = "member_id")
-    private MemberModel memberModel;
+    private Member memberModel;
 	@OneToOne
 	@JoinColumn(name = "copy_id")
-    private CopyModel copy;
+    private Copy copy;
 
     public Loan() {}
     
-    public Loan(MemberModel memberModel, CopyModel copy) {
+    public Loan(Member memberModel, Copy copy) {
         this.memberModel = memberModel;
         this.copy = copy;
         Calendar checkout = Calendar.getInstance();
@@ -67,19 +67,19 @@ public class Loan {
 		this.returnDate = returnDate;
 	}
 
-	public MemberModel getMemberModel() {
+	public Member getMemberModel() {
 		return memberModel;
 	}
 
-	public void setMemberModel(MemberModel memberModel) {
+	public void setMemberModel(Member memberModel) {
 		this.memberModel = memberModel;
 	}
 
-	public CopyModel getCopy() {
+	public Copy getCopy() {
 		return copy;
 	}
 
-	public void setCopy(CopyModel copy) {
+	public void setCopy(Copy copy) {
 		this.copy = copy;
 	}
     

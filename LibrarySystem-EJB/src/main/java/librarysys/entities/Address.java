@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "ADDRESS")
-public class AddressModel {
+public class Address {
 
 	@Column(name = "id")
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,9 +23,9 @@ public class AddressModel {
 	@Column(name = "zip_code")
     private int zipcode;
     
-    public AddressModel(){}
+    public Address(){}
 
-    public AddressModel(String street, String state, String city, int zipcode) {
+    public Address(String street, String state, String city, int zipcode) {
         this.street = street;
         this.state = state;
         this.city = city;

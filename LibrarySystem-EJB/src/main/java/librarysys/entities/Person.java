@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "PERSON")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class PersonModel {
+public abstract class Person {
 	
 	@Column(name = "id")
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,11 +27,11 @@ public abstract class PersonModel {
 	private int telephone;
 	@OneToOne
 	@JoinColumn(name = "person_id")
-	private AddressModel address;
+	private Address address;
 	
-	public PersonModel(){}
+	public Person(){}
 
-	public PersonModel(String firstname, String lastname, int telephone, AddressModel address) {
+	public Person(String firstname, String lastname, int telephone, Address address) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.telephone = telephone;
@@ -70,11 +70,11 @@ public abstract class PersonModel {
 		this.telephone = tel;
 	}
 
-	public AddressModel getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
-	public void setAddress(AddressModel address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 

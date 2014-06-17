@@ -2,8 +2,8 @@ package main.java.library;
 
 import javax.swing.*;
 
-import librarysys.entities.AddressModel;
-import librarysys.entities.MemberModel;
+import librarysys.entities.Address;
+import librarysys.entities.Member;
 
 public class MemeberGUI extends javax.swing.JDialog {
 
@@ -40,12 +40,12 @@ public class MemeberGUI extends javax.swing.JDialog {
 }//GEN-LAST:event_add_btnActionPerformed
 
     public void addMember() {
-        MemberModel member = new MemberModel(firstname_txt.getText(), lastname_txt.getText(), addAddress(), Integer.parseInt(telephone_txt.getText()), Integer.parseInt(memberno_txt.getText()));
+        Member member = new Member(firstname_txt.getText(), lastname_txt.getText(), addAddress(), Integer.parseInt(telephone_txt.getText()), Integer.parseInt(memberno_txt.getText()));
         lb.addMember(member);
     }
 
-    public AddressModel addAddress() {
-        AddressModel a = new AddressModel(street_txt.getText(), state_txt.getText(), city_txt.getText(), Integer.parseInt(zipcode_txt.getText()));
+    public Address addAddress() {
+        Address a = new Address(street_txt.getText(), state_txt.getText(), city_txt.getText(), Integer.parseInt(zipcode_txt.getText()));
         return a;
     }
 

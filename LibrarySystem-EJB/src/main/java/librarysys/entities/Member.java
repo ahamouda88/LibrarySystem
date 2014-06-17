@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "MEMBER")
 @PrimaryKeyJoinColumn(name = "member_id", referencedColumnName = "id")
-public class MemberModel extends PersonModel {
+public class Member extends Person {
 
 	@Column(name = "member_no")
     private int member_no;
@@ -21,9 +21,9 @@ public class MemberModel extends PersonModel {
 	@OneToMany(mappedBy = "memberModel")
     private List<Reservation> reservations = new ArrayList<Reservation>();
 
-    public MemberModel(){}
+    public Member(){}
     
-    public MemberModel(String firstname, String lastname, AddressModel address, int telephone, int memberno) {
+    public Member(String firstname, String lastname, Address address, int telephone, int memberno) {
         super(firstname, lastname, telephone, address);
         this.member_no = memberno;
     }

@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "PUBLICATION")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class PublicationModel {
+public abstract class Publication {
 
 	@Column(name = "id")
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,13 +26,13 @@ public abstract class PublicationModel {
     private int maxcheckoutlength;
 	// I can change it to unidirectional association
 	@OneToMany(mappedBy = "publicationModel")
-	private List<CopyModel> copies = new ArrayList<CopyModel>();
+	private List<Copy> copies = new ArrayList<Copy>();
 //    @OneToMany(mappedBy = "publicationModel")
 //    private List<Reservation> reservations = new LinkedList<Reservation>();
     
-    public  PublicationModel(){}
+    public  Publication(){}
 
-    public PublicationModel(String title, int max) {
+    public Publication(String title, int max) {
         this.title = title;
         this.maxcheckoutlength = max;
     }
@@ -69,11 +69,11 @@ public abstract class PublicationModel {
 		this.maxcheckoutlength = maxcheckoutlength;
 	}
 
-	public List<CopyModel> getCopies() {
+	public List<Copy> getCopies() {
 		return copies;
 	}
 
-	public void setCopies(List<CopyModel> copies) {
+	public void setCopies(List<Copy> copies) {
 		this.copies = copies;
 	}
 

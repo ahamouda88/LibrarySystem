@@ -5,10 +5,10 @@ import java.util.*;
 
 import javax.swing.*;
 
-import librarysys.entities.AddressModel;
-import librarysys.entities.BookModel;
-import librarysys.entities.CopyModel;
-import librarysys.entities.MemberModel;
+import librarysys.entities.Address;
+import librarysys.entities.Book;
+import librarysys.entities.Copy;
+import librarysys.entities.Member;
 
 public class LibrarySys {
 
@@ -24,9 +24,9 @@ public class LibrarySys {
          DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT);
          String s = df.format(d);
          
-         AddressModel a1 = new AddressModel("20","Alex","Miami",2015);
-         MemberModel m1 = new MemberModel("Omar","Ibrahim",a1, 12312312,333);
-         BookModel b1 = new BookModel("Sindad",4,123);
+         Address a1 = new Address("20","Alex","Miami",2015);
+         Member m1 = new Member("Omar","Ibrahim",a1, 12312312,333);
+         Book b1 = new Book("Sindad",4,123);
 //         CopyModel c1 = new CopyModel(1,"aviable",b1);
          javax.swing.ImageIcon x=  new javax.swing.ImageIcon(this.getClass().getResource("/book-icon.png"));
          /* Secenario 1

@@ -4,14 +4,14 @@ import java.awt.CardLayout;
 
 import javax.swing.*;
 
-import librarysys.entities.AddressModel;
-import librarysys.entities.AuthorModel;
-import librarysys.entities.BookModel;
-import librarysys.entities.CopyModel;
+import librarysys.entities.Address;
+import librarysys.entities.Author;
+import librarysys.entities.Book;
+import librarysys.entities.Copy;
 import librarysys.entities.Loan;
-import librarysys.entities.MagazineModel;
-import librarysys.entities.MemberModel;
-import librarysys.entities.PublicationModel;
+import librarysys.entities.Magazine;
+import librarysys.entities.Member;
+import librarysys.entities.Publication;
 import librarysys.entities.Reservation;
 
 import java.awt.Component;
@@ -891,7 +891,7 @@ public class Library extends JFrame {
 
     private void publicationlstValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_publicationlstValueChanged
         if (publicationlst.getSelectedValue() != null) {
-            PublicationModel p = (PublicationModel) publicationlst.getSelectedValue();
+            Publication p = (Publication) publicationlst.getSelectedValue();
             noofcopies_lbl.setText("" + p.getCopies().size());
         }
 
@@ -905,7 +905,7 @@ public class Library extends JFrame {
             public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
                 if (value != null) {
-                    PublicationModel myObj = (PublicationModel) value;
+                    Publication myObj = (Publication) value;
                     setText(myObj.getTitle());
                 }
                 return this;
@@ -952,10 +952,10 @@ public class Library extends JFrame {
 
     private void makeloan_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeloan_btnActionPerformed
         try {
-            MemberModel m = (MemberModel) membersloan_cb.getSelectedItem();
-            PublicationModel p = (PublicationModel) publicatinsloan_cb.getSelectedItem();
-            CopyModel c = null;
-            for (CopyModel copy : p.getCopies()) {
+            Member m = (Member) membersloan_cb.getSelectedItem();
+            Publication p = (Publication) publicatinsloan_cb.getSelectedItem();
+            Copy c = null;
+            for (Copy copy : p.getCopies()) {
                 if (copy.getStatus().equals("Available")) {
                     c = copy;
                     break;
@@ -974,16 +974,16 @@ public class Library extends JFrame {
 
     private void membersloans_lstValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_membersloans_lstValueChanged
         if (membersloans_lst.getSelectedValue() != null) {
-            MemberModel m = (MemberModel) membersloans_lst.getSelectedValue();
+            Member m = (Member) membersloans_lst.getSelectedValue();
             setLoansList(m);
         }
     }//GEN-LAST:event_membersloans_lstValueChanged
 
     private void returnloan_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnloan_btnActionPerformed
         if (membersloans_lst.getSelectedValue() != null && loans_lst.getSelectedValue() != null) {
-            MemberModel m = (MemberModel) membersloans_lst.getSelectedValue();
+            Member m = (Member) membersloans_lst.getSelectedValue();
             Loan l = (Loan) loans_lst.getSelectedValue();
-            CopyModel c = l.getCopy();
+            Copy c = l.getCopy();
             System.out.println(c.getStatus());
           //  m.returnit(c);
             System.out.println(c.getStatus());
@@ -1015,8 +1015,8 @@ public class Library extends JFrame {
 
     private void makereservations_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makereservations_btnActionPerformed
         try {
-            MemberModel m = (MemberModel) membersreserve_cb.getSelectedItem();
-            PublicationModel p = (PublicationModel) publicatinsreserve_cb.getSelectedItem();
+            Member m = (Member) membersreserve_cb.getSelectedItem();
+            Publication p = (Publication) publicatinsreserve_cb.getSelectedItem();
 //            m.reserve(p);
             setMembersList(membersreserve_lst);
         } catch (Exception e) {
@@ -1030,7 +1030,7 @@ public class Library extends JFrame {
 
     private void cancelreservation_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelreservation_btnActionPerformed
         if (membersreserve_lst.getSelectedValue() != null && reservations_lst.getSelectedValue() != null) {
-            MemberModel m = (MemberModel) membersreserve_lst.getSelectedValue();
+            Member m = (Member) membersreserve_lst.getSelectedValue();
             Reservation res = (Reservation) reservations_lst.getSelectedValue();
             System.out.println(res.getStatus());
 //            m.cancelReservation(res);
@@ -1041,7 +1041,7 @@ public class Library extends JFrame {
 
     private void pickupreservation_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pickupreservation_btnActionPerformed
         if (membersreserve_lst.getSelectedValue() != null && reservations_lst.getSelectedValue() != null) {
-            MemberModel m = (MemberModel) membersreserve_lst.getSelectedValue();
+            Member m = (Member) membersreserve_lst.getSelectedValue();
             Reservation res = (Reservation) reservations_lst.getSelectedValue();
             System.out.println(res.getStatus());
 //            m.pickupReservation(res);
@@ -1052,25 +1052,25 @@ public class Library extends JFrame {
 
     private void membersreserve_lstValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_membersreserve_lstValueChanged
         if (membersreserve_lst.getSelectedValue() != null) {
-            MemberModel m = (MemberModel) membersreserve_lst.getSelectedValue();
+            Member m = (Member) membersreserve_lst.getSelectedValue();
             setReservesList(m);
         }
     }//GEN-LAST:event_membersreserve_lstValueChanged
 
-    public void addPublication(PublicationModel p) {
+    public void addPublication(Publication p) {
         publications.addElement(p);
     }
 
-    public void addAuthor(AuthorModel a) {
+    public void addAuthor(Author a) {
         authors.addElement(a);
     }
 
-    public void addMember(MemberModel m) {
+    public void addMember(Member m) {
         members.addElement(m);
     }
 
     public void addCopy() {
-        PublicationModel p = (PublicationModel) publicationlst.getSelectedValue();
+        Publication p = (Publication) publicationlst.getSelectedValue();
 //        CopyModel c = new CopyModel(p.getCopies().size() + 1, "Available", p);
         noofcopies_lbl.setText("" + p.getCopies().size());
     }
@@ -1103,7 +1103,7 @@ public class Library extends JFrame {
             public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
                 if (value != null) {
-                    AuthorModel myObj = (AuthorModel) value;
+                    Author myObj = (Author) value;
                     setText(index + 1 + "- " + myObj.getFirstname() + " " + myObj.getLastname());
                 }
                 return this;
@@ -1119,7 +1119,7 @@ public class Library extends JFrame {
             public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
                 if (value != null) {
-                    MemberModel myObj = (MemberModel) value;
+                    Member myObj = (Member) value;
                     setText(index + 1 + "- " + myObj.getFirstname() + " " + myObj.getLastname());
                 }
                 return this;
@@ -1127,7 +1127,7 @@ public class Library extends JFrame {
         });
     }
 
-    public void setLoansList(MemberModel m) {
+    public void setLoansList(Member m) {
         loans_lst.setListData(m.getLoans().toArray());
         /*
         List<Loan> onloan = new ArrayList<Loan>();
@@ -1157,7 +1157,7 @@ public class Library extends JFrame {
         });
     }
 
-    public void setReservesList(MemberModel m) {
+    public void setReservesList(Member m) {
         List<Reservation> reservations = m.getReservations();
         reservations_lst.setListData(reservations.toArray());
         reservations_lst.setCellRenderer(new DefaultListCellRenderer() {
@@ -1188,7 +1188,7 @@ public class Library extends JFrame {
                 public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                     super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
                     if (value != null) {
-                        MemberModel myObj = (MemberModel) value;
+                        Member myObj = (Member) value;
                         setText(myObj.getFirstname() + " " + myObj.getLastname());
                     }
                     return this;
@@ -1206,7 +1206,7 @@ public class Library extends JFrame {
                 public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                     super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
                     if (value != null) {
-                        PublicationModel myObj = (PublicationModel) value;
+                        Publication myObj = (Publication) value;
                         setText(myObj.getTitle());
                     }
                     return this;
@@ -1216,25 +1216,25 @@ public class Library extends JFrame {
     }
 
     public void fillData() {
-        publications.add(0, new BookModel("Book1", 7, 11));
-        publications.add(1, new BookModel("Book2", 7, 122));
-        publications.add(2, new BookModel("Book3", 7, 6));
-        publications.add(3, new BookModel("Book4", 7, 2));
-        publications.add(4, new MagazineModel("Magazine1", 7, 12));
-        publications.add(5, new MagazineModel("Magazine2", 7, 54));
-        publications.add(6, new MagazineModel("Magazine3", 7, 32));
-        publications.add(7, new MagazineModel("Magazine4", 7, 23));
+        publications.add(0, new Book("Book1", 7, 11));
+        publications.add(1, new Book("Book2", 7, 122));
+        publications.add(2, new Book("Book3", 7, 6));
+        publications.add(3, new Book("Book4", 7, 2));
+        publications.add(4, new Magazine("Magazine1", 7, 12));
+        publications.add(5, new Magazine("Magazine2", 7, 54));
+        publications.add(6, new Magazine("Magazine3", 7, 32));
+        publications.add(7, new Magazine("Magazine4", 7, 23));
 
 //        authors.add(0, new AuthorModel("Ahmed", "Ibrahim", 012334324, new AddressModel("1000", "Miami", "Alexandria", 1232), "N/A", "ABC", (BookModel) publications.get(0)));
 //        authors.add(1, new AuthorModel("Omar", "Sherif", 015656, new AddressModel("1000", "Miami", "Alexandria", 1232), "N/A", "ABC", (BookModel) publications.get(1)));
 //        authors.add(2, new AuthorModel("Mohamed", "AbdelRahman", 01562356, new AddressModel("1000", "Miami", "Alexandria", 1232), "N/A", "ABC", (BookModel) publications.get(2)));
 //        authors.add(3, new AuthorModel("Ibrahim", "Hamouda", 01562356, new AddressModel("1000", "Miami", "Alexandria", 1232), "N/A", "ABC", (BookModel) publications.get(3)));
 
-        members.add(0, new MemberModel("AbdelRaouf", "ElKaffash", new AddressModel("1000", "Miami", "Alexandria", 1232), 91545454, 1));
-        members.add(1, new MemberModel("Sara", "Mohamed", new AddressModel("1000", "Miami", "Alexandria", 1232), 17113224, 2));
-        members.add(2, new MemberModel("Nancy", "AbdelKreem", new AddressModel("1000", "Miami", "Alexandria", 1232), 21391224, 3));
-        members.add(3, new MemberModel("Amr", "Diab", new AddressModel("1000", "Miami", "Alexandria", 1232), 12334324, 4));
-        members.add(4, new MemberModel("Mohamed", "Mounir", new AddressModel("1000", "Miami", "Alexandria", 1232), 812334324, 5));
+        members.add(0, new Member("AbdelRaouf", "ElKaffash", new Address("1000", "Miami", "Alexandria", 1232), 91545454, 1));
+        members.add(1, new Member("Sara", "Mohamed", new Address("1000", "Miami", "Alexandria", 1232), 17113224, 2));
+        members.add(2, new Member("Nancy", "AbdelKreem", new Address("1000", "Miami", "Alexandria", 1232), 21391224, 3));
+        members.add(3, new Member("Amr", "Diab", new Address("1000", "Miami", "Alexandria", 1232), 12334324, 4));
+        members.add(4, new Member("Mohamed", "Mounir", new Address("1000", "Miami", "Alexandria", 1232), 812334324, 5));
 
         setPublicationsList(publicationList);
         setAuthorsList(authorList);

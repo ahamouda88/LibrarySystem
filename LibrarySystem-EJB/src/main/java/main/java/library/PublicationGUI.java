@@ -2,8 +2,8 @@ package main.java.library;
 
 import javax.swing.*;
 
-import librarysys.entities.BookModel;
-import librarysys.entities.MagazineModel;
+import librarysys.entities.Book;
+import librarysys.entities.Magazine;
 
 public class PublicationGUI extends javax.swing.JDialog {
 
@@ -56,12 +56,12 @@ public class PublicationGUI extends javax.swing.JDialog {
     }//GEN-LAST:event_add_btnActionPerformed
 
     public void addBook() {
-        BookModel b = new BookModel(title_txt.getText(), Integer.parseInt(maxcheckoutlength_txt.getText()), Integer.parseInt(ISBN_txt.getText()));
+        Book b = new Book(title_txt.getText(), Integer.parseInt(maxcheckoutlength_txt.getText()), Integer.parseInt(ISBN_txt.getText()));
         lb.addPublication(b);
     }
 
     public void addMagazine() {
-        MagazineModel m = new MagazineModel(title_txt.getText(), Integer.parseInt(maxcheckoutlength_txt.getText()), Integer.parseInt(issueno_txt.getText()));
+        Magazine m = new Magazine(title_txt.getText(), Integer.parseInt(maxcheckoutlength_txt.getText()), Integer.parseInt(issueno_txt.getText()));
         lb.addPublication(m);
     }
 

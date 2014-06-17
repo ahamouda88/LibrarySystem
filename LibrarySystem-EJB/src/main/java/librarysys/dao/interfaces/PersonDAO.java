@@ -2,16 +2,16 @@ package librarysys.dao.interfaces;
 
 import java.util.List;
 
-import librarysys.entities.PersonModel;
+import librarysys.entities.Person;
 
 public interface PersonDAO {
-	public List<PersonModel> getPersons();
+	public List<Person> getPersons();
 
-	public PersonModel getPerson(int id);
+	public Person getPerson(int id);
 
-	public boolean savePerson(PersonModel person);
+	public boolean savePerson(Person person);
 
-	public boolean updatePerson(PersonModel person);
+	public boolean updatePerson(Person person);
 
-	public boolean deletePerson(PersonModel person);
+	public boolean deletePerson(Person person);
 }

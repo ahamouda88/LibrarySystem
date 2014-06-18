@@ -4,8 +4,8 @@
 
   <groupId>main.java.library</groupId>
   <artifactId>LibrarySystem</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
 
   <name>LibrarySystem</name>
   <url>http://maven.apache.org</url>
@@ -22,4 +22,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <modules>
+  	<module>LibrarySystem-EJB</module>
+  </modules>
 </project>

@@ -1,4 +1,4 @@
-package org.LibrarySystem.Web;
+package librarysys.web;
 
 /**
  * Hello world!

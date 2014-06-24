@@ -2,7 +2,12 @@ package librarysys.spring;
 
 import librarysys.entities.Address;
 import librarysys.entities.Author;
+import librarysys.entities.Book;
+import librarysys.entities.Copy;
+import librarysys.entities.Loan;
+import librarysys.entities.Magazine;
 import librarysys.entities.Member;
+import librarysys.entities.Reservation;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,4 +32,33 @@ public class SpringBeansConfig {
 		Member member = new Member();
 		return member;
 	}
+	
+	@Bean(name = "Book")
+	public Book book(){
+		Book book = new Book();
+		return book;
+	}
+	
+	@Bean(name = "Magazine")
+	public Magazine magazine(){
+		Magazine magazine = new Magazine();
+		return magazine;
+	}
+	
+	@Bean(name = "Copy")
+	public Copy copy(){
+		Copy copy = new Copy();
+		return copy;
+	}
+	
+	@Bean(name = "Reservation")
+	public Reservation reservation(){
+		return new Reservation();
+	}
+	
+	@Bean(name = "Loan")
+	public Loan loan(){
+		return new Loan();
+	}
+	
 }

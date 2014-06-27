@@ -1,20 +1,10 @@
-package librarysys.spring;
+package librarysys.springconfig;
 
-import librarysys.entities.Address;
-import librarysys.entities.Author;
-import librarysys.entities.Book;
-import librarysys.entities.Copy;
-import librarysys.entities.Loan;
-import librarysys.entities.Magazine;
-import librarysys.entities.Member;
-import librarysys.entities.Reservation;
-
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan({"librarysys.entities"})
+@ComponentScan({"librarysys.entities","librarysys.spring"})
 public class SpringBeansConfig {
 	
 //	@Bean(name = "Address")

@@ -1,11 +1,29 @@
 package librarysys.springconfig;
 
+import javax.sql.DataSource;
+
+import org.apache.commons.dbcp.BasicDataSource;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 
 @Configuration
 @ComponentScan({"librarysys.entities","librarysys.spring"})
+@ImportResource("classpath:META-INF/spring-config.xml")
 public class SpringBeansConfig {
+
+	
+	@Bean
+	public DataSource dataSource() {
+		
+		BasicDataSource dataSource = new BasicDataSource();
+		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		dataSource.setUrl("jdbc:mysql://localhost/..");
+		dataSource.setUsername("username");
+		dataSource.setPassword("password");
+		return dataSource;
+	}
 	
 //	@Bean(name = "Address")
 //	public Address address(){

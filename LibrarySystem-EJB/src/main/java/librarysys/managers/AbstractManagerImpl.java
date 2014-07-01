@@ -2,12 +2,14 @@ package librarysys.managers;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import librarysys.managers.interfaces.AbstractManager;
 
+@Service
 @Transactional
-public class AbstractManagerImpl<T, ID> implements AbstractManager<T, ID>{
+public abstract class AbstractManagerImpl<T, ID> implements AbstractManager<T, ID>{
 
 	public T getByPrimaryKey(Object key) {
 		// TODO Auto-generated method stub

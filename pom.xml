@@ -49,12 +49,7 @@
       	<version>${hibernate.version}</version>
     </dependency>
     
-    <dependency>
-    	<groupId>org.springframework</groupId>
-    	<artifactId>spring-context</artifactId>
-    	<version>${spring.version}</version>
-	</dependency>
-	<!--    Spring Dependencies
+	<!--    Spring Dependencies -->
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-web</artifactId>
@@ -101,7 +96,7 @@
 	    <artifactId>spring-jdbc</artifactId>
 	    <version>${spring.version}</version>
 	</dependency>
-	-->
+	
   </dependencies>
   <modules>
   	<module>LibrarySystem-EJB</module>

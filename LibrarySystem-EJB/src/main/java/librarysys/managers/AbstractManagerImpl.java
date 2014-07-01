@@ -2,8 +2,11 @@ package librarysys.managers;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import librarysys.managers.interfaces.AbstractManager;
 
+@Transactional
 public class AbstractManagerImpl<T, ID> implements AbstractManager<T, ID>{
 
 	public T getByPrimaryKey(Object key) {

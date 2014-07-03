@@ -11,13 +11,12 @@ import librarysys.entities.Person;
 public class PersonDAOImpl extends AbstractDAOImpl<Person, Integer> implements PersonDAO{
 
 	public Person getByPrimaryKey(Integer key) {
-		// TODO Auto-generated method stub
-		return null;
+		return (Person) getCurrentSession().load(Person.class, key);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Person> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return (List<Person>) getCurrentSession().createCriteria(Person.class).list();
 	}
 
 }

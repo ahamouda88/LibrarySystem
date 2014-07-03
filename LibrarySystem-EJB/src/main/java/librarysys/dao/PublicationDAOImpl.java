@@ -11,13 +11,12 @@ import librarysys.entities.Publication;
 public class PublicationDAOImpl extends AbstractDAOImpl<Publication, Integer> implements PublicationDAO{
 
 	public Publication getByPrimaryKey(Integer key) {
-		// TODO Auto-generated method stub
-		return null;
+		return (Publication) getCurrentSession().load(Publication.class, key);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Publication> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return (List<Publication>) getCurrentSession().createCriteria(Publication.class).list();
 	}
 
 }

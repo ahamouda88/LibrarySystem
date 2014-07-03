@@ -11,13 +11,12 @@ import librarysys.entities.Loan;
 public class LoanDAOImpl extends AbstractDAOImpl<Loan, Integer> implements LoanDAO{
 
 	public Loan getByPrimaryKey(Integer key) {
-		// TODO Auto-generated method stub
-		return null;
+		return (Loan) getCurrentSession().load(Loan.class, key);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Loan> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return (List<Loan>) getCurrentSession().createCriteria(Loan.class).list();
 	}
 
 }

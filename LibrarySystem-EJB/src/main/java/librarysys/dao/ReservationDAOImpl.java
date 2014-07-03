@@ -11,13 +11,12 @@ import librarysys.entities.Reservation;
 public class ReservationDAOImpl extends AbstractDAOImpl<Reservation, Integer> implements ReservationDAO{
 
 	public Reservation getByPrimaryKey(Integer key) {
-		// TODO Auto-generated method stub
-		return null;
+		return (Reservation) getCurrentSession().load(Reservation.class, key);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Reservation> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return (List<Reservation>) getCurrentSession().createCriteria(Reservation.class).list();
 	}
 
 }

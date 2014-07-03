@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "LOAN")
-public class Loan {
+public class Loan implements BaseEntity{
 
 	@Column(name = "id")
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)

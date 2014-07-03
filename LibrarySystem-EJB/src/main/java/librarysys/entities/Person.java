@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "PERSON")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Person {
+public abstract class Person implements BaseEntity{
 	
 	@Column(name = "id")
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)

@@ -1,6 +1,8 @@
 package librarysys.managers.interfaces;
 
-//TODO add methods others than the CRUD operations
-public interface PublicationManager {
+import librarysys.entities.Publication;
+
+
+public interface PublicationManager extends AbstractManager<Publication, Integer>{
 
 }

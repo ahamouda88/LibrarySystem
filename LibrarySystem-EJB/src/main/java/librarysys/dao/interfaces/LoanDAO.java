@@ -1,5 +1,7 @@
 package librarysys.dao.interfaces;
 
-public interface LoanDAO {
+import librarysys.entities.Loan;
+
+public interface LoanDAO extends AbstractDAO<Loan, Integer>{
  
 }

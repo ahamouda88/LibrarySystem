@@ -1,5 +1,7 @@
 package librarysys.dao.interfaces;
 
-public interface ReservationDAO {
+import librarysys.entities.Reservation;
+
+public interface ReservationDAO extends AbstractDAO<Reservation, Integer>{
 
 }

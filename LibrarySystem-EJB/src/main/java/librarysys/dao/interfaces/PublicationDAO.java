@@ -1,5 +1,7 @@
 package librarysys.dao.interfaces;
 
-public interface PublicationDAO {
+import librarysys.entities.Publication;
+
+public interface PublicationDAO extends AbstractDAO<Publication, Integer>{
  
 }

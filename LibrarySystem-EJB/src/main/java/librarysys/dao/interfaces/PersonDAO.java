@@ -1,5 +1,7 @@
 package librarysys.dao.interfaces;
 
-public interface PersonDAO {
+import librarysys.entities.Person;
+
+public interface PersonDAO extends AbstractDAO<Person, Integer>{
 
 }

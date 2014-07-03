@@ -1,6 +1,7 @@
 package librarysys.managers.interfaces;
 
-//TODO add methods others than the CRUD operations
-public interface PersonManager {
+import librarysys.entities.Person;
+
+public interface PersonManager extends AbstractManager<Person, Integer>{
 
 }

@@ -1,6 +1,7 @@
 package librarysys.managers.interfaces;
 
-// TODO add methods others than the CRUD operations
-public interface CopyManager {
+import librarysys.entities.Copy;
+
+public interface CopyManager extends AbstractManager<Copy, Integer>{
 
 }

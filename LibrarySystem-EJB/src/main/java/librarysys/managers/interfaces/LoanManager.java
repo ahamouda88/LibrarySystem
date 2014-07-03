@@ -1,6 +1,7 @@
 package librarysys.managers.interfaces;
 
-//TODO add methods others than the CRUD operations
-public interface LoanManager {
+import librarysys.entities.Loan;
+
+public interface LoanManager extends AbstractManager<Loan, Integer>{
 
 }

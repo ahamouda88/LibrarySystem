@@ -1,5 +1,7 @@
 package librarysys.dao.interfaces;
 
-public interface CopyDAO {
+import librarysys.entities.Copy;
+
+public interface CopyDAO extends AbstractDAO<Copy, Integer>{
 
 }

@@ -10,7 +10,7 @@ import librarysys.managers.interfaces.PublicationManager;
 
 @Service
 @Transactional
-public class PublicationManagerImpl extends AbstractManagerImpl<Publication, Integer> implements PublicationManager{
+public class PublicationManagerImpl implements PublicationManager{
 
 	@Autowired
 	private PublicationDAO publicationDAO;

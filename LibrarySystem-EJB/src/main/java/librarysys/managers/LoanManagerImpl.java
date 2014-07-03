@@ -10,7 +10,7 @@ import librarysys.managers.interfaces.LoanManager;
 
 @Service
 @Transactional
-public class LoanManagerImpl extends AbstractManagerImpl<Loan, Integer> implements LoanManager{
+public class LoanManagerImpl implements LoanManager{
 	
 	@Autowired
 	private LoanDAO loanDAO;

@@ -10,7 +10,7 @@ import librarysys.managers.interfaces.ReservationManager;
 
 @Service
 @Transactional
-public class ReservationManagerImpl extends AbstractManagerImpl<Reservation, Integer> implements ReservationManager{
+public class ReservationManagerImpl implements ReservationManager{
 
 	@Autowired
 	private ReservationDAO reservationDAO;

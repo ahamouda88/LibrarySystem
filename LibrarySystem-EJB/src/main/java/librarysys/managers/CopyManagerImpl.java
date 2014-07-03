@@ -10,7 +10,7 @@ import librarysys.managers.interfaces.CopyManager;
 
 @Service
 @Transactional
-public class CopyManagerImpl extends AbstractManagerImpl<Copy,Integer> implements CopyManager{
+public class CopyManagerImpl implements CopyManager{
 
 	@Autowired
 	private CopyDAO copyDAO;

@@ -10,7 +10,7 @@ import librarysys.managers.interfaces.PersonManager;
 
 @Service
 @Transactional
-public class PersonManagerImpl extends AbstractManagerImpl<Person, Integer> implements PersonManager{
+public class PersonManagerImpl implements PersonManager{
 
 	@Autowired
 	private PersonDAO personDAO;

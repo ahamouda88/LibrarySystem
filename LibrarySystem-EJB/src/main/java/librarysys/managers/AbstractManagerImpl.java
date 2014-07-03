@@ -21,19 +21,16 @@ public abstract class AbstractManagerImpl<T, ID> implements AbstractManager<T, I
 		return null;
 	}
 
-	public boolean presist(Object entity) {
+	public void save(Object entity) {
 		// TODO Auto-generated method stub
-		return false;
 	}
 
-	public boolean remove(Object entity) {
+	public void remove(Object entity) {
 		// TODO Auto-generated method stub
-		return false;
 	}
 
-	public boolean update(Object entity) {
+	public void update(Object entity) {
 		// TODO Auto-generated method stub
-		return false;
 	}
 
 }

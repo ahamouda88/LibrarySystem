@@ -27,19 +27,16 @@ public abstract class AbstractDAOImpl<T , ID> implements AbstractDAO<T, ID>{
 		return null;
 	}
 
-	public boolean presist(T entity) {
-		// TODO Auto-generated method stub
-		return false;
+	public void save(T entity) {
+		sessionFactory.getCurrentSession().saveOrUpdate(entity);
 	}
 
-	public boolean remove(T entity) {
+	public void remove(T entity) {
 		// TODO Auto-generated method stub
-		return false;
 	}
 
-	public boolean update(T entity) {
+	public void update(T entity) {
 		// TODO Auto-generated method stub
-		return false;
 	}
 
 	public SessionFactory getSessionFactory() {

@@ -8,10 +8,10 @@ public interface AbstractManager<T,ID> {
 	
 	public List<T> getAll();
 	
-	public boolean presist(T entity);
+	public void save(T entity);
 	
-	public boolean remove(T entity);
+	public void remove(T entity);
 	
-	public boolean update(T entity);
+	public void update(T entity);
 	
 }

@@ -1,36 +1,40 @@
 package librarysys.managers;
 
+import java.io.Serializable;
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import librarysys.dao.AbstractDAOImpl;
 import librarysys.managers.interfaces.AbstractManager;
 
+// Abstract Manager is not used yet!
 //@Service
-//@Transactional
-public abstract class AbstractManagerImpl<T, ID> implements AbstractManager<T, ID>{
+@Transactional
+public abstract class AbstractManagerImpl<T, ID extends Serializable> implements AbstractManager<T, ID>{
+	
+	@Autowired
+	protected AbstractDAOImpl<T, ID> abstractDAO;
 
-//	public T getByPrimaryKey(Object key) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	public List<T> getAll() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	public void save(Object entity) {
-//		// TODO Auto-generated method stub
-//	}
-//
-//	public void remove(Object entity) {
-//		// TODO Auto-generated method stub
-//	}
-//
-//	public void update(Object entity) {
-//		// TODO Auto-generated method stub
-//	}
+	public T getByPrimaryKey(ID key) {
+		return abstractDAO.getByPrimaryKey(key);
+	}
+
+	public List<T> getAll() {
+		return abstractDAO.getAll();
+	}
+
+	public void save(T entity) {
+		abstractDAO.save(entity);
+	}
+
+	public void remove(T entity) {
+		abstractDAO.remove(entity);
+	}
+
+	public void update(T entity) {
+		abstractDAO.update(entity);
+	}
 
 }

@@ -1,8 +1,9 @@
 package librarysys.managers.interfaces;
 
+import java.io.Serializable;
 import java.util.List;
 
-public interface AbstractManager<T,ID> {
+public interface AbstractManager<T,ID extends Serializable> {
 	
 	public T getByPrimaryKey(ID key);
 	

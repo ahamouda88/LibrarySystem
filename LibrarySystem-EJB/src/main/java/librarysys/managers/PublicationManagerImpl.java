@@ -18,27 +18,22 @@ public class PublicationManagerImpl implements PublicationManager{
 	private PublicationDAO publicationDAO;
 
 	public Publication getByPrimaryKey(Integer key) {
-		// TODO Auto-generated method stub
-		return null;
+		return publicationDAO.getByPrimaryKey(key);
 	}
 
 	public List<Publication> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return publicationDAO.getAll();
 	}
 
 	public void save(Publication entity) {
-		// TODO Auto-generated method stub
-		
+		publicationDAO.save(entity);
 	}
 
 	public void remove(Publication entity) {
-		// TODO Auto-generated method stub
-		
+		publicationDAO.remove(entity);
 	}
 
 	public void update(Publication entity) {
-		// TODO Auto-generated method stub
-		
+		publicationDAO.update(entity);
 	}
 }

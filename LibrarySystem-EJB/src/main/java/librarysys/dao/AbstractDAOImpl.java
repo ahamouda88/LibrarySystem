@@ -1,6 +1,7 @@
 package librarysys.dao;
 
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -12,7 +13,7 @@ import librarysys.dao.interfaces.AbstractDAO;
 import librarysys.entities.BaseEntity;
 
 @Repository
-public abstract class AbstractDAOImpl<T , ID> implements AbstractDAO<T, ID>{
+public abstract class AbstractDAOImpl<T , ID extends Serializable> implements AbstractDAO<T, ID >{
 	
 //	protected Class<T> type;
 //	
@@ -26,7 +27,7 @@ public abstract class AbstractDAOImpl<T , ID> implements AbstractDAO<T, ID>{
     private SessionFactory sessionFactory;
 	
 	@SuppressWarnings("unchecked")
-	public T getByPrimaryKey(Integer key) {
+	public T getByPrimaryKey(ID key) {
 		return (T) getCurrentSession().load(BaseEntity.class, key);
 	}
 

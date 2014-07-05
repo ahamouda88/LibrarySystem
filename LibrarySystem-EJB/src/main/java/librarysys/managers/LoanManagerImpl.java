@@ -18,27 +18,22 @@ public class LoanManagerImpl implements LoanManager{
 	private LoanDAO loanDAO;
 
 	public Loan getByPrimaryKey(Integer key) {
-		// TODO Auto-generated method stub
-		return null;
+		return loanDAO.getByPrimaryKey(key);
 	}
 
 	public List<Loan> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return loanDAO.getAll();
 	}
 
 	public void save(Loan entity) {
-		// TODO Auto-generated method stub
-		
+		loanDAO.save(entity);
 	}
 
 	public void remove(Loan entity) {
-		// TODO Auto-generated method stub
-		
+		loanDAO.remove(entity);
 	}
 
 	public void update(Loan entity) {
-		// TODO Auto-generated method stub
-		
+		loanDAO.update(entity);
 	}
 }

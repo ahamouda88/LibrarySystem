@@ -18,28 +18,23 @@ public class PersonManagerImpl implements PersonManager{
 	private PersonDAO personDAO;
 
 	public Person getByPrimaryKey(Integer key) {
-		// TODO Auto-generated method stub
-		return null;
+		return personDAO.getByPrimaryKey(key);
 	}
 
 	public List<Person> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return personDAO.getAll();
 	}
 
 	public void save(Person entity) {
-		// TODO Auto-generated method stub
-		
+		personDAO.save(entity);
 	}
 
 	public void remove(Person entity) {
-		// TODO Auto-generated method stub
-		
+		personDAO.remove(entity);
 	}
 
 	public void update(Person entity) {
-		// TODO Auto-generated method stub
-		
+		personDAO.update(entity);
 	}
 	
 }

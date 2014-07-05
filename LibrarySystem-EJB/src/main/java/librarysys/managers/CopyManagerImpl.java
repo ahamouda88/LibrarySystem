@@ -18,27 +18,22 @@ public class CopyManagerImpl implements CopyManager{
 	private CopyDAO copyDAO;
 
 	public Copy getByPrimaryKey(Integer key) {
-		// TODO Auto-generated method stub
-		return null;
+		return copyDAO.getByPrimaryKey(key);
 	}
 
 	public List<Copy> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return copyDAO.getAll();
 	}
 
 	public void save(Copy entity) {
-		// TODO Auto-generated method stub
-		
+		copyDAO.save(entity);
 	}
 
 	public void remove(Copy entity) {
-		// TODO Auto-generated method stub
-		
+		copyDAO.remove(entity);
 	}
 
 	public void update(Copy entity) {
-		// TODO Auto-generated method stub
-		
+		copyDAO.update(entity);
 	}
 }

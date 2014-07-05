@@ -1,8 +1,9 @@
 package librarysys.dao.interfaces;
 
+import java.io.Serializable;
 import java.util.List;
 
-public interface AbstractDAO<T, ID> {
+public interface AbstractDAO<T, ID extends Serializable> {
 
 	public T getByPrimaryKey(ID key);
 	

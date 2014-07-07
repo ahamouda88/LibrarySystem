@@ -2,34 +2,21 @@ package librarysys.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import librarysys.dao.interfaces.PublicationDAO;
 import librarysys.entities.Publication;
 
-public class PublicationDAOImpl implements PublicationDAO{
+@Repository
+public class PublicationDAOImpl extends AbstractDAOImpl<Publication, Integer> implements PublicationDAO{
 
-	public List<Publication> getPublication() {
-		// TODO Auto-generated method stub
-		return null;
+	public Publication getByPrimaryKey(Integer key) {
+		return (Publication) getCurrentSession().load(Publication.class, key);
 	}
 
-	public Publication getPublication(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public boolean savePublication(Publication publication) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean updatePublication(Publication publication) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean deletePublication(Publication publication) {
-		// TODO Auto-generated method stub
-		return false;
+	@SuppressWarnings("unchecked")
+	public List<Publication> getAll() {
+		return (List<Publication>) getCurrentSession().createCriteria(Publication.class).list();
 	}
 
 }

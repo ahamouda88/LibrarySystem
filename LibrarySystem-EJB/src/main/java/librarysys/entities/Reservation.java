@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "RESERVATION")
-public class Reservation {
+public class Reservation implements BaseEntity{
 
 	@Column(name = "status_date")
     private Date statusDate;

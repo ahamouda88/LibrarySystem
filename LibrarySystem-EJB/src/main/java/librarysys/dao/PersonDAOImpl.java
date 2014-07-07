@@ -2,37 +2,21 @@ package librarysys.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import librarysys.dao.interfaces.PersonDAO;
 import librarysys.entities.Person;
 
-public class PersonDAOImpl implements PersonDAO{
+@Repository
+public class PersonDAOImpl extends AbstractDAOImpl<Person, Integer> implements PersonDAO{
 
-	// Inject the entity manager here
-	// Make the EJB classes call this DAO to perform CRUD operations
-	
-	public List<Person> getPersons() {
-		// TODO Auto-generated method stub
-		return null;
+	public Person getByPrimaryKey(Integer key) {
+		return (Person) getCurrentSession().load(Person.class, key);
 	}
 
-	public Person getPerson(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public boolean savePerson(Person person) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean updatePerson(Person person) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean deletePerson(Person person) {
-		// TODO Auto-generated method stub
-		return false;
+	@SuppressWarnings("unchecked")
+	public List<Person> getAll() {
+		return (List<Person>) getCurrentSession().createCriteria(Person.class).list();
 	}
 
 }

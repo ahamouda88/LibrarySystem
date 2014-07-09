@@ -3,13 +3,16 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>main.java.library</groupId>
+    <groupId>librarysystem</groupId>
     <artifactId>LibrarySystem</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>LibrarySystem-EJB</artifactId>
-  <name>LibrarySystem-EJB</name>
-  <url>http://maven.apache.org</url>
+  	<artifactId>LibrarySystem-EJB</artifactId>
+  	<version>${project.version}</version>
+  	<description>Persistence layer of the application</description>
+  
+  	<name>LibrarySystem-EJB</name>
+  	<url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>

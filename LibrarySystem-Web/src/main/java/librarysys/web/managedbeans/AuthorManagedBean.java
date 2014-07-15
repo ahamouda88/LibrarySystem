@@ -10,7 +10,7 @@ import librarysys.managers.interfaces.PersonManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-@ManagedBean
+@ManagedBean(name="authorMB")
 @RequestScoped
 public class AuthorManagedBean implements Serializable{
 

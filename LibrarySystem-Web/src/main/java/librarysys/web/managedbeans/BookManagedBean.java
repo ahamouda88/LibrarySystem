@@ -10,7 +10,7 @@ import librarysys.managers.interfaces.PublicationManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-@ManagedBean
+@ManagedBean(name="bookMB")
 @RequestScoped
 public class BookManagedBean implements Serializable{
 

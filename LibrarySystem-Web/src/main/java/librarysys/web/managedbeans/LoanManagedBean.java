@@ -10,7 +10,7 @@ import librarysys.managers.interfaces.LoanManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-@ManagedBean
+@ManagedBean(name="loanMB")
 @RequestScoped
 public class LoanManagedBean implements Serializable{
 

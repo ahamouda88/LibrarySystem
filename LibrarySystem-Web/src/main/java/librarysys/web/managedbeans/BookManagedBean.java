@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class BookManagedBean {
 
 	@Autowired
-	private PublicationManager publicationManager;
+	private PublicationManager bookManager;
 	private Book book;
 	
 	public BookManagedBean(){
@@ -22,16 +22,16 @@ public class BookManagedBean {
 	
 	public String saveBook(){
 		String page = "";
-		publicationManager.save(book);
+		bookManager.save(book);
 		return page;
 	}
 
-	public PublicationManager getPublicationManager() {
-		return publicationManager;
+	public PublicationManager getBookManager() {
+		return bookManager;
 	}
 
-	public void setPublicationManager(PublicationManager publicationManager) {
-		this.publicationManager = publicationManager;
+	public void setBookManager(PublicationManager bookManager) {
+		this.bookManager = bookManager;
 	}
 
 	public Book getBook() {

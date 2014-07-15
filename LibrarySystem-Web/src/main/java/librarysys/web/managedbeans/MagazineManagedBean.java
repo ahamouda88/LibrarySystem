@@ -1,11 +1,15 @@
 package librarysys.web.managedbeans;
 
+import java.io.Serializable;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import librarysys.entities.Magazine;
 import librarysys.managers.interfaces.PublicationManager;
 
-public class MagazineManagedBean {
+public class MagazineManagedBean implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	
 	@Autowired
 	private PublicationManager magazineManager;

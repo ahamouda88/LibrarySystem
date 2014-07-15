@@ -1,5 +1,7 @@
 package librarysys.web.managedbeans;
 
+import java.io.Serializable;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -10,8 +12,10 @@ import librarysys.managers.interfaces.PersonManager;
 
 @ManagedBean(name="memberMB")
 @RequestScoped
-public class MemberManagedBean {
+public class MemberManagedBean implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+	
 	@Autowired
 	private PersonManager memberManager;
 	private Member member;

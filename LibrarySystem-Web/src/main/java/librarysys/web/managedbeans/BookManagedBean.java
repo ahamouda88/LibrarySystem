@@ -1,5 +1,7 @@
 package librarysys.web.managedbeans;
 
+import java.io.Serializable;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -10,8 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @ManagedBean
 @RequestScoped
-public class BookManagedBean {
+public class BookManagedBean implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+	
 	@Autowired
 	private PublicationManager bookManager;
 	private Book book;

@@ -1,0 +1,18 @@
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+     	xmlns:f="http://java.sun.com/jsf/core"
+      	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<h:outputLabel value="Add a New Member!"/>
+	</h:head>
+	<h:body>
+		<p:dataTable>
+			<p:row>
+				<p:outputLabel value ="First Name: "/> <p:inputText id="firstNameID" value="#{memberMB.member.firstname}"/>
+			</p:row>
+			<p:row>
+				<p:outputLabel value ="Last Name: "/> <p:inputText id="lastNameID" value="#{memberMB.member.lastname}"/>
+			</p:row>
+		</p:dataTable>
+	</h:body>
+</html>

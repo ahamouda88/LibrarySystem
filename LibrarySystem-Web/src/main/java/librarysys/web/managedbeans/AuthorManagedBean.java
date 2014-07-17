@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
+import librarysys.entities.Address;
 import librarysys.entities.Author;
 import librarysys.managers.interfaces.PersonManager;
 
@@ -19,9 +20,11 @@ public class AuthorManagedBean implements Serializable{
 	@Autowired
 	private PersonManager personManager;
 	private Author author;
+	private Address address;
 	
 	public AuthorManagedBean(){
 		author = new Author();
+		address = new Address();
 	}
 	
 	public String saveAuthor(){
@@ -45,6 +48,13 @@ public class AuthorManagedBean implements Serializable{
 	public void setAuthor(Author author) {
 		this.author = author;
 	}
-	
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 	
 }

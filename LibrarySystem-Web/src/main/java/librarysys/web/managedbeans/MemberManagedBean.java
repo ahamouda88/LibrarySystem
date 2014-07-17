@@ -7,6 +7,7 @@ import javax.faces.bean.RequestScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import librarysys.entities.Address;
 import librarysys.entities.Member;
 import librarysys.managers.interfaces.PersonManager;
 
@@ -19,9 +20,11 @@ public class MemberManagedBean implements Serializable{
 	@Autowired
 	private PersonManager memberManager;
 	private Member member;
+	private Address address;
 	
 	public MemberManagedBean(){
 		member = new Member();
+		address = new Address();
 	}
 
 	public String saveMember(){
@@ -44,6 +47,14 @@ public class MemberManagedBean implements Serializable{
 
 	public void setMember(Member member) {
 		this.member = member;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 	
 }

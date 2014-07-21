@@ -24,17 +24,17 @@ public abstract class Person implements BaseEntity{
 	@Column(name = "last_name")
 	private String lastname;
 	@Column(name = "phone")
-	private int telephone;
+	private int phone;
 	@OneToOne
 	@JoinColumn(name = "person_id")
 	private Address address;
 	
 	public Person(){}
 
-	public Person(String firstname, String lastname, int telephone, Address address) {
+	public Person(String firstname, String lastname, int phone, Address address) {
 		this.firstname = firstname;
 		this.lastname = lastname;
-		this.telephone = telephone;
+		this.phone = phone;
 		this.address = address;
 	}
 	
@@ -62,14 +62,6 @@ public abstract class Person implements BaseEntity{
 		this.lastname = s;
 	}
 
-	public int getTelephone() {
-		return telephone;
-	}
-
-	public void setTelephone(int tel) {
-		this.telephone = tel;
-	}
-
 	public Address getAddress() {
 		return address;
 	}
@@ -78,4 +70,12 @@ public abstract class Person implements BaseEntity{
 		this.address = address;
 	}
 
+	public int getPhone() {
+		return phone;
+	}
+
+	public void setPhone(int phone) {
+		this.phone = phone;
+	}
+	
 }

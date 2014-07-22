@@ -1,0 +1,42 @@
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+     	xmlns:f="http://java.sun.com/jsf/core"
+      	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<h:outputLabel value="Add a New Author!"/>
+	</h:head>
+	<h:body>
+		<p:dataTable>
+			<p:row>
+				<p:outputLabel value ="First Name: "/> <p:inputText id="firstNameID" value="#{authorMB.author.firstname}"/>
+			</p:row>
+			<p:row>
+				<p:outputLabel value ="Last Name: "/> <p:inputText id="lastNameID" value="#{authorMB.author.lastname}"/>
+			</p:row>
+			<p:row>
+				<p:outputLabel value ="Phone: "/> <p:inputText id="phoneID" value="#{authorMB.author.phone}"/>
+			</p:row>
+			<p:row>
+				<p:outputLabel value ="Street: "/> <p:inputText id="streetID" value="#{authorMB.address.street}"/>
+			</p:row>
+			<p:row>
+				<p:outputLabel value ="City: "/> <p:inputText id="cityID" value="#{authorMB.address.city}"/>
+			</p:row>
+			<p:row>
+				<p:outputLabel value ="State: "/> <p:inputText id="stateID" value="#{authorMB.address.state}"/>
+			</p:row>
+			<p:row>
+				<p:outputLabel value ="ZipCode: "/> <p:inputText id="zipcodeID" value="#{authorMB.address.zipcode}"/>
+			</p:row>
+			<p:row>
+				<p:outputLabel value ="credentials: "/> <p:inputText id="credentialsID" value="#{authorMB.author.credentials}"/>
+			</p:row>
+			<p:row>
+				<p:outputLabel value ="Short Bio.: "/> <p:inputTextarea id="short_bioID" rows="6" cols="33" value="#{authorMB.author.short_bio}" />
+			</p:row>
+			<p:row>
+				<p:button value="save" outcome=""/>
+			</p:row>
+		</p:dataTable>
+	</h:body>
+</html>

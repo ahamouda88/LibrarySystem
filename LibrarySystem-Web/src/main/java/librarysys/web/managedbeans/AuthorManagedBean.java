@@ -29,6 +29,9 @@ public class AuthorManagedBean implements Serializable{
 	
 	public String saveAuthor(){
 		String page = "";
+		if(address != null){
+			author.setAddress(address);
+		}
 		personManager.save(author);
 		return page;
 	}

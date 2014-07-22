@@ -29,6 +29,9 @@ public class MemberManagedBean implements Serializable{
 
 	public String saveMember(){
 		String page = "";
+		if(address != null){
+			member.setAddress(address);
+		}
 		memberManager.save(member);
 		return page;
 	}

@@ -17,16 +17,16 @@
 				<p:outputLabel value ="Phone: "/> <p:inputText id="phoneID" value="#{memberMB.member.phone}"/>
 			</p:row>
 			<p:row>
-				<p:outputLabel value ="Street: "/> <p:inputText id="streetID" value="#{memberMB.member.address.street}"/>
+				<p:outputLabel value ="Street: "/> <p:inputText id="streetID" value="#{memberMB.address.street}"/>
 			</p:row>
 			<p:row>
-				<p:outputLabel value ="City: "/> <p:inputText id="cityID" value="#{memberMB.member.address.city}"/>
+				<p:outputLabel value ="City: "/> <p:inputText id="cityID" value="#{memberMB.address.city}"/>
 			</p:row>
 			<p:row>
-				<p:outputLabel value ="State: "/> <p:inputText id="stateID" value="#{memberMB.member.address.state}"/>
+				<p:outputLabel value ="State: "/> <p:inputText id="stateID" value="#{memberMB.address.state}"/>
 			</p:row>
 			<p:row>
-				<p:outputLabel value ="ZipCode: "/> <p:inputText id="zipcodeID" value="#{memberMB.member.address.zipcode}"/>
+				<p:outputLabel value ="ZipCode: "/> <p:inputText id="zipcodeID" value="#{memberMB.address.zipcode}"/>
 			</p:row>
 			<p:row>
 				<p:outputLabel value ="Member Number: "/> <p:inputText id="memberNumID" value="#{memberMB.member.member_no}"/>

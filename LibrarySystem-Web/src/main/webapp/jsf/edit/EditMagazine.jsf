@@ -1,0 +1,18 @@
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+     	xmlns:f="http://java.sun.com/jsf/core"
+      	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<h:outputLabel value="Add a New magazine!"/>
+	</h:head>
+	<h:body>
+		<p:panel header="magazine Details" style="width :700;">
+			<p:panelGrid columns="2" id="magazineEditPanelGrid">
+				<p:outputLabel value ="Title: "/> <p:inputText id="titleID" value="#{magazineMB.magazine.title}"/>
+				<p:outputLabel value ="Max Checkout Length: "/> <p:inputText id="maxcheckoutlengthID" value="#{magazineMB.magazine.maxcheckoutlength}"/>
+				<p:outputLabel value ="Issue No.: "/> <p:inputText id="issuenoID" value="#{magazineMB.magazine.issueno}"/>
+				<p:button value="save" outcome=""/>
+			</p:panelGrid>
+		</p:panel>
+	</h:body>
+</html>

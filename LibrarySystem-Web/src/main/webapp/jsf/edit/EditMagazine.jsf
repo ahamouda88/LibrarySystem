@@ -3,10 +3,10 @@
      	xmlns:f="http://java.sun.com/jsf/core"
       	xmlns:p="http://primefaces.org/ui">
 	<h:head>
-		<h:outputLabel value="Add a New magazine!"/>
+		<h:outputLabel value="Add a New Magazine!"/>
 	</h:head>
 	<h:body>
-		<p:panel header="magazine Details" style="width :700;">
+		<p:panel header="Magazine Details" style="width :700;">
 			<p:panelGrid columns="2" id="magazineEditPanelGrid">
 				<p:outputLabel value ="Title: "/> <p:inputText id="titleID" value="#{magazineMB.magazine.title}"/>
 				<p:outputLabel value ="Max Checkout Length: "/> <p:inputText id="maxcheckoutlengthID" value="#{magazineMB.magazine.maxcheckoutlength}"/>

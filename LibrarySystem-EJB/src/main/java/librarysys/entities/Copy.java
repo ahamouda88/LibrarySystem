@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import librarysys.enums.CopyStatus;
+
 @Entity
 @Table(name = "COPY")
 public class Copy implements BaseEntity{
@@ -20,7 +22,7 @@ public class Copy implements BaseEntity{
 	@Column(name = "copy_no")
     private int copyno;
 	@Column(name = "status")
-    public String status;
+    public CopyStatus status = CopyStatus.AVAILABLE;
 	@ManyToOne
 	@JoinColumn(name = "publication_id")
     private Publication publicationModel;
@@ -30,7 +32,7 @@ public class Copy implements BaseEntity{
     
     public Copy(){}
     
-	public Copy(int copyno, String status) {
+	public Copy(int copyno, CopyStatus status) {
 		this.copyno = copyno;
 		this.status = status;
 	}
@@ -51,11 +53,11 @@ public class Copy implements BaseEntity{
 		this.copyno = copyno;
 	}
 	
-	public String getStatus() {
+	public CopyStatus getStatus() {
 		return status;
 	}
 	
-	public void setStatus(String status) {
+	public void setStatus(CopyStatus status) {
 		this.status = status;
 	}
 	

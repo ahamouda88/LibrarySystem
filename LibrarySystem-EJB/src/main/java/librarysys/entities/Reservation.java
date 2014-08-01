@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import librarysys.enums.CopyStatus;
+
 /*
  * Added a Reservation class to keep track of the reservation history for each member and copy.
  * */
@@ -112,7 +114,7 @@ public class Reservation implements BaseEntity{
             //this.publication.getAllReservations().remove(this);
             // NEWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWw
             if (this.copyModel != null) {
-                this.copyModel.setStatus("Available");
+                this.copyModel.setStatus(CopyStatus.AVAILABLE);
             }
         }
         // NEWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWw

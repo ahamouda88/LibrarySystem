@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import librarysys.enums.CopyStatus;
+import librarysys.enums.ReservationStatus;
 
 /*
  * Added a Reservation class to keep track of the reservation history for each member and copy.
@@ -21,7 +22,7 @@ public class Reservation implements BaseEntity{
 	@Column(name = "status_date")
     private Date statusDate;
 	@Column(name = "status")
-    private String status;
+    private ReservationStatus status;
 //    @ManyToOne
 //    @JoinColumn(name = "publication_id")
 //    private PublicationModel publication;
@@ -31,16 +32,13 @@ public class Reservation implements BaseEntity{
 	@ManyToOne
 	@JoinColumn(name = "member_id")
     private Member memberModel;
-    
-    //public enum Statusenum{Canceled,OnHold,Pending};
-    //private Statusenum status;
 
     public Reservation(){}
     
     public Reservation(Member m, Publication pub) {
         this.memberModel = m;
       //  this.publication = pub;
-        this.setStatus("Pending");
+        this.setStatus(ReservationStatus.PENDING);
         Calendar statusdate = Calendar.getInstance();
         Date d = statusdate.getTime();
         this.statusDate = d;
@@ -68,12 +66,12 @@ public class Reservation implements BaseEntity{
 	}
 
 
-	public String getStatus() {
+	public ReservationStatus getStatus() {
 		return status;
 	}
 
 
-	public void setStatus(String status) {
+	public void setStatus(ReservationStatus status) {
 		this.status = status;
 	}
 
@@ -106,8 +104,8 @@ public class Reservation implements BaseEntity{
 
 
 	public void cancel() {
-        if (!this.getStatus().equals("Fulfilled")) {
-            this.setStatus("Canceled");
+        if (this.getStatus() != ReservationStatus.FULLFILLED) {
+            this.setStatus(ReservationStatus.CANCELED);
             Calendar statusdate = Calendar.getInstance();
             Date d = statusdate.getTime();
             this.setStatusDate(d);
@@ -128,8 +126,8 @@ public class Reservation implements BaseEntity{
     }
 
     public void pickup() {
-        if (this.getStatus().equals("Onhold")) {
-            this.setStatus("Fulfilled");
+        if (this.getStatus() == ReservationStatus.ONHOLD) {
+            this.setStatus(ReservationStatus.FULLFILLED);
             Calendar statusdate = Calendar.getInstance();
             Date d = statusdate.getTime();
             this.setStatusDate(d);
@@ -138,7 +136,7 @@ public class Reservation implements BaseEntity{
     }
 
     public void hold(Copy c) {
-        this.setStatus("Onhold");
+        this.setStatus(ReservationStatus.ONHOLD);
         Calendar statusdate = Calendar.getInstance();
         Date d = statusdate.getTime();
         this.setStatusDate(d);

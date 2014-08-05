@@ -30,7 +30,7 @@ public abstract class Publication implements BaseEntity{
 //    @OneToMany(mappedBy = "publicationModel")
 //    private List<Reservation> reservations = new LinkedList<Reservation>();
     
-    public  Publication(){}
+    public Publication(){}
 
     public Publication(String title, int max) {
         this.title = title;

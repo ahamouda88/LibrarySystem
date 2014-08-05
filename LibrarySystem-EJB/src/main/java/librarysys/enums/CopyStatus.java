@@ -2,5 +2,8 @@ package librarysys.enums;
 
 public enum CopyStatus {
 	AVAILABLE,
-	UNAVAILABLE
+	ONHOLD,
+	FULLFILLED,
+	CANCELED,
+	PENDING
 }

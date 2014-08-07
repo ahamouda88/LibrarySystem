@@ -3,11 +3,13 @@ package librarysys.web.managedbeans;
 import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
 import librarysys.entities.Address;
 import librarysys.entities.Author;
 import librarysys.managers.interfaces.PersonManager;
+import librarysys.web.forms.AuthorForm;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -19,45 +21,29 @@ public class AuthorManagedBean implements Serializable{
 	
 	@Autowired
 	private PersonManager personManager;
-	private Author author;
-	private Address address;
+	
+	@ManagedProperty(value="#{authorForm}")
+	private AuthorForm authorForm;
 	
 	public AuthorManagedBean(){
-		author = new Author();
-		address = new Address();
 	}
 	
 	public String saveAuthor(){
 		String page = "";
-		if(address != null){
-			author.setAddress(address);
+		if(authorForm.getAddress() != null){
+			authorForm.getAuthor().setAddress(authorForm.getAddress());
 		}
-		personManager.save(author);
+		personManager.save(authorForm.getAuthor());
 		return page;
 	}
 
-	public PersonManager getPersonManager() {
-		return personManager;
+	public AuthorForm getAuthorForm() {
+		return authorForm;
 	}
 
-	public void setPersonManager(PersonManager personManager) {
-		this.personManager = personManager;
+	public void setAuthorForm(AuthorForm authorForm) {
+		this.authorForm = authorForm;
 	}
 
-	public Author getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(Author author) {
-		this.author = author;
-	}
-
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
 	
 }

@@ -6,8 +6,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
-import librarysys.entities.Address;
-import librarysys.entities.Author;
 import librarysys.managers.interfaces.PersonManager;
 import librarysys.web.forms.AuthorForm;
 

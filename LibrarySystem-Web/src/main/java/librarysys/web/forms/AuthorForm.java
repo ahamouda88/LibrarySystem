@@ -1,11 +1,13 @@
 package librarysys.web.forms;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
 import librarysys.entities.Address;
 import librarysys.entities.Author;
 
 @ManagedBean(name="authorForm")
+@RequestScoped
 public class AuthorForm {
 	
 	private Author author;

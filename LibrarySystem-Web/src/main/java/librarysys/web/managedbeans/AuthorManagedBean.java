@@ -18,13 +18,9 @@ public class AuthorManagedBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Autowired
-	private PersonManager personManager;
-	
+	private PersonManager personManager;	
 	@ManagedProperty(value="#{authorForm}")
 	private AuthorForm authorForm;
-	
-	public AuthorManagedBean(){
-	}
 	
 	public String saveAuthor(){
 		String page = "";
@@ -43,5 +39,4 @@ public class AuthorManagedBean implements Serializable{
 		this.authorForm = authorForm;
 	}
 
-	
 }

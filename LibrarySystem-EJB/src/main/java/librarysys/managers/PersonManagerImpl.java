@@ -36,5 +36,9 @@ public class PersonManagerImpl implements PersonManager{
 	public void update(Person entity) {
 		personDAO.update(entity);
 	}
+
+	public void saveAuthor(Person author) {
+		personDAO.saveAuthor(author);
+	}
 	
 }

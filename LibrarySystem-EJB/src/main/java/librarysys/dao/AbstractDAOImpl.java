@@ -10,30 +10,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import librarysys.dao.interfaces.AbstractDAO;
-import librarysys.entities.BaseEntity;
 
 @Repository
 public abstract class AbstractDAOImpl<T , ID extends Serializable> implements AbstractDAO<T, ID >{
 	
-//	protected Class<T> type;
-//	
-//	public AbstractDAOImpl(){}
-//	
-//	public AbstractDAOImpl(Class<T> type){
-//		this.type = type;
-//	}
+	protected Class<T> type;
+
+	public AbstractDAOImpl(Class<T> type){
+		this.type = type;
+	}
 	
 	@Autowired
     private SessionFactory sessionFactory;
 	
 	@SuppressWarnings("unchecked")
 	public T getByPrimaryKey(ID key) {
-		return (T) getCurrentSession().load(BaseEntity.class, key);
+		return (T) getCurrentSession().load(type, key);
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<T> getAll() {
-		return (List<T>) getCurrentSession().createCriteria(BaseEntity.class).list();
+		return (List<T>) getCurrentSession().createCriteria(type).list();
 	}
 
 	public void save(T entity) {

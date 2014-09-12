@@ -8,7 +8,8 @@ import librarysys.entities.Address;
 @Repository
 public class AddressDAOImpl extends AbstractDAOImpl<Address, Integer> implements AddressDAO{
 
-	public Address getByPrimaryKey(Integer key) {
-		return (Address) getCurrentSession().load(Address.class, key);
+	public AddressDAOImpl(){
+		super(Address.class);
 	}
+
 }

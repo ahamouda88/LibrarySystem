@@ -14,7 +14,7 @@ import librarysys.enums.CopyStatus;
 
 @Entity
 @Table(name = "COPY")
-public class Copy implements BaseEntity{
+public class Copy {
 
 	@Column(name = "id")
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)

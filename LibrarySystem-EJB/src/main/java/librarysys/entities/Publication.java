@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "PUBLICATION")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Publication implements BaseEntity{
+public abstract class Publication {
 
 	@Column(name = "id")
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)

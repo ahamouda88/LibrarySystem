@@ -17,7 +17,7 @@ import librarysys.enums.ReservationStatus;
 
 @Entity
 @Table(name = "RESERVATION")
-public class Reservation implements BaseEntity{
+public class Reservation {
 
 	@Column(name = "status_date")
     private Date statusDate;
